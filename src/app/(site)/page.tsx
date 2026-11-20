@@ -23,11 +23,41 @@ export const metadata = buildMeta({
 });
 
 const CATEGORIES = [
-  { name: "Face & Neck Surgeries",      glyph: "✦", accent: "#c8ab78", procs: ["Rhinoplasty", "Facelift", "Blepharoplasty", "Chin Lift", "Lip Surgery"] },
-  { name: "Breast Surgeries",           glyph: "◈", accent: "#b99a65", procs: ["Breast Implant", "Breast Lift", "Breast Reduction"] },
-  { name: "Body & Chest Contouring",    glyph: "◇", accent: "#d4aa72", procs: ["Gynecomastia", "Liposuction", "Tummy Tuck", "Mommy Makeover"] },
-  { name: "Hair Restoration",           glyph: "⬡", accent: "#c0a060", procs: ["Hair Transplant", "PRP", "Hair Mesotherapy", "Hair Booster"] },
-  { name: "Skin & Aesthetic Treatments",glyph: "◉", accent: "#b89550", procs: ["Laser Toning", "Thread Lift", "Anti-Wrinkle", "Vampire Facelift"] },
+  {
+    name: "Face & Neck Surgeries",
+    glyph: "✦",
+    accent: "#c8ab78",
+    image: "/assets/cat_face_neck.webp",
+    procs: ["Rhinoplasty", "Facelift", "Blepharoplasty", "Chin Lift", "Lip Surgery"],
+  },
+  {
+    name: "Breast Surgeries",
+    glyph: "◈",
+    accent: "#b99a65",
+    image: "/assets/cat_breast_surgery.webp",
+    procs: ["Breast Implant", "Breast Lift", "Breast Reduction"],
+  },
+  {
+    name: "Body & Chest Contouring",
+    glyph: "◇",
+    accent: "#d4aa72",
+    image: "/assets/cat_body_contouring.webp",
+    procs: ["Gynecomastia", "Liposuction", "Tummy Tuck", "Mommy Makeover"],
+  },
+  {
+    name: "Hair Restoration",
+    glyph: "⬡",
+    accent: "#c0a060",
+    image: "/assets/cat_hair_restoration.webp",
+    procs: ["Hair Transplant", "PRP", "Hair Mesotherapy", "Hair Booster"],
+  },
+  {
+    name: "Skin & Aesthetic Treatments",
+    glyph: "◉",
+    accent: "#b89550",
+    image: "/assets/cat_skin_aesthetic.webp",
+    procs: ["Laser Toning", "Thread Lift", "Anti-Wrinkle", "Vampire Facelift"],
+  },
 ];
 
 const REEL_POSTERS = [
@@ -204,42 +234,58 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Category cards — responsive grid (no horizontal scroll, no overflow) */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {/* Category cards — responsive grid with luxury photo thumbnails (Speech Studio style) */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {CATEGORIES.map((cat) => (
               <Link
                 key={cat.name}
                 href={`/services#${slugify(cat.name)}`}
-                className="glass-card group block p-5 md:p-6"
+                className="glass-card group block overflow-hidden rounded-2xl border border-white/10 bg-forest-deep/60 backdrop-blur-md transition-all duration-300 hover:border-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40"
               >
-                {/* Glyph + name */}
-                <div
-                  className="text-3xl mb-3 transition-transform duration-400 group-hover:scale-110 inline-block"
-                  style={{ color: cat.accent }}
-                >
-                  {cat.glyph}
+                {/* Photo Thumbnail */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-forest/40">
+                  <SafeImage
+                    src={cat.image}
+                    alt={cat.name}
+                    priority={false}
+                    sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/30 to-transparent opacity-80 group-hover:opacity-65 transition-opacity" />
+                  
+                  {/* Floating Category Badge (Speech Studio style) */}
+                  <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-forest-deep/90 px-2.5 py-0.5 text-[11px] font-medium text-ivory backdrop-blur-md border border-white/15 shadow-sm">
+                    <span style={{ color: cat.accent }}>{cat.glyph}</span>
+                    <span className="font-sans tracking-wide text-ivory/90">{cat.name}</span>
+                  </div>
                 </div>
-                <h3 className="font-display text-base md:text-lg text-ivory leading-tight mb-4">
-                  {cat.name}
-                </h3>
-                <div className="h-px mb-4" style={{ background: `linear-gradient(90deg, ${cat.accent}60, transparent)` }} />
-                {/* Procedure list — 2-col on sm/md for wider cards */}
-                <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-y-2 gap-x-4 mb-4">
-                  {cat.procs.slice(0, 4).map((p) => (
-                    <li key={p} className="flex items-center gap-2 text-xs text-ivory/55 group-hover:text-ivory/75 transition-colors">
-                      <span className="h-px w-2.5 flex-shrink-0" style={{ background: cat.accent }} />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-                <div
-                  className="flex items-center gap-1.5 text-xs font-semibold tracking-wider transition-all group-hover:gap-3"
-                  style={{ color: cat.accent }}
-                >
-                  <span>Explore</span>
-                  <span className="transition-transform group-hover:translate-x-1">→</span>
+
+                {/* Card Body */}
+                <div className="p-4 md:p-5">
+                  <h3 className="font-display text-base md:text-lg text-ivory leading-tight mb-2.5 group-hover:text-gold transition-colors">
+                    {cat.name}
+                  </h3>
+                  <div className="h-px mb-3" style={{ background: `linear-gradient(90deg, ${cat.accent}60, transparent)` }} />
+
+                  {/* Procedure list */}
+                  <ul className="grid grid-cols-1 gap-y-1.5 mb-4">
+                    {cat.procs.slice(0, 4).map((p) => (
+                      <li key={p} className="flex items-center gap-2 text-xs text-ivory/60 group-hover:text-ivory/80 transition-colors">
+                        <span className="h-1 w-1 rounded-full flex-shrink-0" style={{ background: cat.accent }} />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Explore Link */}
+                  <div
+                    className="flex items-center gap-1.5 text-xs font-semibold tracking-wider transition-all group-hover:gap-2.5"
+                    style={{ color: cat.accent }}
+                  >
+                    <span>Explore procedures</span>
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </div>
                 </div>
-                <div className="absolute top-0 inset-x-0 h-[1px]" style={{ background: `linear-gradient(90deg, transparent, ${cat.accent}50, transparent)` }} />
               </Link>
             ))}
           </div>
