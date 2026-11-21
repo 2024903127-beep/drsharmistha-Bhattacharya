@@ -58,7 +58,38 @@
 
 /* ---------- Public website ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: 0 1.5rem; border-radius: 999px; font-weight: 600; font-size: .95rem; transition: background-color .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; text-align: center; letter-spacing: .01em; }
-.btn-gold { background: linear-gradient(135deg, #c8ab78 0%, var(--color-gold) 50%, #9a7a45 100%); color: #1b1a14; box-shadow: 0 4px 20px rgba(185,154,101,.35), inset 0 1px 0 rgba(255,255,255,.25); }
+
+/* ── Luxury CTA button — gold shimmer sweep ──────────────────── */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #c8ab78 0%, var(--color-gold) 50%, #9a7a45 100%);
+  color: #1b1a14;
+  box-shadow: 0 4px 20px rgba(185,154,101,.35), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255,255,255,0.38) 50%,
+    transparent 80%
+  );
+  animation: btn-shimmer 2.6s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+@keyframes btn-shimmer {
+  0%   { left: -100%; }
+  40%, 100% { left: 150%; }
+}
+@media (prefers-reduced-motion: reduce) { .btn-gold::after { animation: none; } }
+
 .btn-gold:hover { background: linear-gradient(135deg, #d4b985 0%, #c8ab78 50%, #a88a52 100%); box-shadow: 0 6px 28px rgba(185,154,101,.5), inset 0 1px 0 rgba(255,255,255,.3); transform: translateY(-1px); }
 .btn-forest { background: var(--color-forest); color: var(--color-ivory); }
 .btn-forest:hover { background: var(--color-forest-deep); }

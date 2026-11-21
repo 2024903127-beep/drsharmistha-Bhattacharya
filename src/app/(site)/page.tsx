@@ -8,6 +8,7 @@ import { Tilt } from "@/components/site/Tilt";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Faq } from "@/components/site/Faq";
 import { CtaBand } from "@/components/site/CtaBand";
+import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 
 export const metadata = buildMeta({
   title: "Plastic Surgeon in Faridabad | Dr. Sharmistha Bhattacharyya",
@@ -185,6 +186,7 @@ export default function Home() {
                 alt="Dr. Sharmistha Bhattacharyya, plastic surgeon in Faridabad"
                 priority
                 sizes="(min-width:1024px) 352px, 288px"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-gold/20" />
             </div>
@@ -223,7 +225,7 @@ export default function Home() {
       <section className="relative w-full overflow-hidden bg-forest-deep py-16 md:py-24 lg:py-28">
         <div className="absolute inset-0 opacity-[.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #b99a65 1px, transparent 0)", backgroundSize: "32px 32px" }} />
 
-        <div className="relative wrap">
+        <RevealOnScroll className="relative wrap">
           <div className="lux-label mb-4 text-gold/70">Our Specialisations</div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between mb-8 md:mb-12">
             <h2 className="h-section text-ivory max-w-xl">
@@ -312,7 +314,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -321,17 +323,17 @@ export default function Home() {
           Tablet+: side by side
       ══════════════════════════════════════════ */}
       <section className="bg-ivory py-16 md:py-24 lg:py-28 w-full overflow-hidden">
-        <div className="wrap">
+        <RevealOnScroll className="wrap">
           <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14 lg:gap-20">
 
             {/* Surgeon in Operating Theatre — hidden on mobile, shown md+ */}
             <div className="relative hidden md:block">
               <div className="relative h-72 md:h-80 lg:h-96 overflow-hidden rounded-sm shadow-xl bg-sage">
                 <SafeImage
-                  src="/assets/img_9577.webp"
-                  alt="Dr. Sharmistha Bhattacharyya operating with surgical loupes in theatre"
+                  src="/assets/img_9318.webp"
+                  alt="Dr. Sharmistha Bhattacharyya in operating theatre with anaesthesia monitor"
                   sizes="(min-width:1024px) 42vw, 48vw"
-                  className="object-cover object-top"
+                  className="object-cover object-[center_30%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest/40 to-transparent" />
               </div>
@@ -373,7 +375,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -383,7 +385,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, #b99a65 0, #b99a65 1px, transparent 0, transparent 50%)", backgroundSize: "28px 28px" }} />
         <div className="absolute inset-0 bg-gradient-to-br from-forest-deep/50 via-transparent to-forest-deep/30" />
 
-        <div className="relative wrap">
+        <RevealOnScroll className="relative wrap">
           <div className="lux-label mb-4 text-gold/70">Why patients choose us</div>
           <h2 className="h-section text-ivory max-w-2xl mb-10 md:mb-14">
             One surgeon for every consultation, operation and follow-up
@@ -403,7 +405,7 @@ export default function Home() {
             ))}
           </div>
           <Link href="/about-dr-sharmistha" className="btn btn-line-light mt-10 inline-flex">Read about Dr. Sharmistha</Link>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -412,7 +414,7 @@ export default function Home() {
           Desktop: sticky left + right timeline
       ══════════════════════════════════════════ */}
       <section className="section-contain bg-ivory w-full py-16 md:py-24 lg:py-28">
-        <div className="wrap">
+        <RevealOnScroll className="wrap">
           <div className="grid gap-10 lg:grid-cols-[18rem_1fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>How it works</div>
@@ -436,7 +438,7 @@ export default function Home() {
               ))}
             </ol>
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -446,7 +448,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[.05]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #b99a65 1px, transparent 0)", backgroundSize: "24px 24px" }} />
         <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
-        <div className="relative wrap">
+        <RevealOnScroll className="relative wrap">
           <div className="lux-label mb-4 text-gold/60">Patient stories</div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14">
             <h2 className="h-section text-ivory max-w-xl">What patients say</h2>
@@ -480,14 +482,14 @@ export default function Home() {
               </figure>
             ))}
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
           § 7  HOSPITAL
       ══════════════════════════════════════════ */}
       <section className="section-contain bg-sage w-full py-16 md:py-24 lg:py-28">
-        <div className="wrap grid gap-8 md:grid-cols-2 md:items-center md:gap-14 lg:gap-20">
+        <RevealOnScroll className="wrap grid gap-8 md:grid-cols-2 md:items-center md:gap-14 lg:gap-20">
           <div>
             <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Where surgery happens</div>
             <h2 className="h-section text-forest">Operated in an accredited hospital</h2>
@@ -538,7 +540,7 @@ export default function Home() {
               plus outstation patients by video.
             </p>
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -548,7 +550,7 @@ export default function Home() {
           Desktop: 3-col
       ══════════════════════════════════════════ */}
       <section className="section-contain bg-ivory w-full py-16 md:py-24 lg:py-28">
-        <div className="wrap">
+        <RevealOnScroll className="wrap">
           <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Educational content</div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14">
             <div>
@@ -598,18 +600,18 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </div>
+        </RevealOnScroll>
       </section>
 
       {/* ══════════════════════════════════════════
           § 9  FAQ
       ══════════════════════════════════════════ */}
       <section className="section-contain bg-sage w-full py-16 md:py-24 lg:py-28">
-        <div className="wrap">
+        <RevealOnScroll className="wrap">
           <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Common questions</div>
           <h2 className="h-section mb-8 md:mb-12 max-w-2xl text-forest">Questions patients ask first</h2>
           <Faq items={faq} />
-        </div>
+        </RevealOnScroll>
       </section>
 
       <CtaBand />
