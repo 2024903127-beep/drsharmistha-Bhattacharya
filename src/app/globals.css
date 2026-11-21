@@ -217,6 +217,64 @@
 /* ── Drawer slide transition  ────────────────────────────────── */
 .duration-400 { transition-duration: 400ms; }
 
+/* ── Luxury number counter — gold pulse on stat cards ─────────── */
+.stat-glass {
+  cursor: default;
+  position: relative;
+}
+.stat-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% 0%, rgba(185,154,101,.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+.stat-glass:hover::before { opacity: 1; }
+
+/* ── Smooth gold underline on links ──────────────────────────── */
+.link-gold {
+  position: relative;
+  text-decoration: none;
+}
+.link-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--color-gold);
+  transition: width .35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-gold:hover::after { width: 100%; }
+
+/* ── Luxury hover card lift ───────────────────────────────────── */
+.card-lift {
+  transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease;
+  transform: translateZ(0);
+}
+.card-lift:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+}
+
+/* ── Mobile sticky CTA — gold shimmer on Book button ────────── */
+.sticky-book {
+  position: relative;
+  overflow: hidden;
+}
+.sticky-book::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.18) 50%, transparent 80%);
+  animation: btn-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) { .sticky-book::after { animation: none; } }
+
 .prose-clinic { font-size: 1.0625rem; line-height: 1.78; color: #2f3733; }
 .prose-clinic p { margin: 0 0 1.1em; max-width: 68ch; }
 .prose-clinic ul { list-style: disc; padding-left: 1.3rem; margin: 0 0 1.2em; max-width: 68ch; }
