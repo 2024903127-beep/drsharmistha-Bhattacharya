@@ -59,8 +59,8 @@ export default async function ServicePage({ params }: P) {
         </div>
         <div className="gold-line w-full" />
       </section>
-      <div className="wrap grid gap-12 py-12 lg:grid-cols-[1fr_20rem] lg:py-16">
-        <article>
+      <div className="wrap grid gap-12 py-12 lg:grid-cols-[1fr_20rem] lg:py-16 min-w-0">
+        <article className="min-w-0">
           <div className="relative mb-10 aspect-[16/9] overflow-hidden bg-sage empty:hidden"><SafeImage src={`/assets/${s.slug}.png`} alt={`${s.name} result, Dr. Sharmistha Bhattacharyya`} fallback="none" sizes="(min-width:1024px) 720px, 100vw" /></div>
           <nav aria-label="On this page" className="mb-10 border-y border-forest/15 py-4 text-sm">
             <p className="mb-2 font-medium text-forest">On this page</p>
@@ -82,7 +82,7 @@ export default async function ServicePage({ params }: P) {
         </article>
         <aside className="lg:sticky lg:top-28 lg:self-start space-y-5">
           {/* Booking card */}
-          <div className="glass-card-light rounded-sm border border-forest/15 p-6">
+          <div className="glass-card-light rounded-sm border border-forest/15 p-6 overflow-visible" style={{contain: "none"}}>
             <p className="lux-label mb-3 text-gold-deep/80">Plan your procedure</p>
             <h2 className="font-display text-2xl text-forest">Plan your {s.name.toLowerCase()}</h2>
             <div className="my-4 h-px bg-gradient-to-r from-gold/40 to-transparent" />
@@ -91,7 +91,7 @@ export default async function ServicePage({ params }: P) {
                 {facts.map(([k, v]) => (
                   <div key={k} className="flex flex-col gap-0.5">
                     <dt className="text-xs font-semibold uppercase tracking-wider text-stone/70">{k}</dt>
-                    <dd className="font-medium text-ink">{v}</dd>
+                    <dd className="font-medium text-ink break-words min-w-0">{v}</dd>
                   </div>
                 ))}
               </dl>
@@ -104,7 +104,7 @@ export default async function ServicePage({ params }: P) {
           </div>
           {/* Related in category */}
           {byCategory(s.category).filter((x) => x.slug !== s.slug).length > 0 && (
-            <div className="glass-card-light rounded-sm border border-forest/10 p-6">
+            <div className="glass-card-light rounded-sm border border-forest/10 p-6 overflow-visible" style={{contain: "none"}}>
               <p className="lux-label mb-3 text-gold-deep/70">Same specialty</p>
               <h2 className="font-display text-lg text-forest">Also in {s.category}</h2>
               <div className="my-3 h-px bg-gradient-to-r from-gold/30 to-transparent" />

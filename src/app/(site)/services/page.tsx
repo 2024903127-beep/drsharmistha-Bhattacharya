@@ -107,7 +107,7 @@ export default function Services() {
                           ? "glass-card text-ivory"
                           : "glass-card-light text-ink border border-forest/10 hover:border-gold/40"
                       }`}
-                      style={{ animationDelay: `${si * 60}ms` }}
+                      style={{ animationDelay: `${si * 60}ms`, contain: "none" }}
                     >
                       {/* Top row: number + arrow */}
                       <div className="mb-4 flex items-start justify-between">
