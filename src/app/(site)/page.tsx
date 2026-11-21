@@ -324,14 +324,14 @@ export default function Home() {
         <div className="wrap">
           <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14 lg:gap-20">
 
-            {/* Clinic image — hidden on mobile, shown md+ */}
+            {/* Surgeon in Operating Theatre — hidden on mobile, shown md+ */}
             <div className="relative hidden md:block">
               <div className="relative h-72 md:h-80 lg:h-96 overflow-hidden rounded-sm shadow-xl bg-sage">
                 <SafeImage
-                  src="/assets/clinic-room.jpg"
-                  alt="Consultation room"
+                  src="/assets/img_9577.webp"
+                  alt="Dr. Sharmistha Bhattacharyya operating with surgical loupes in theatre"
                   sizes="(min-width:1024px) 42vw, 48vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest/40 to-transparent" />
               </div>
@@ -503,18 +503,18 @@ export default function Home() {
           </div>
 
           <div className="space-y-3">
-            {/* Clinic image */}
+            {/* Real Operating Theatre image */}
             <div className="relative h-44 md:h-52 overflow-hidden rounded-sm shadow-md bg-sage/80 mb-4">
               <SafeImage
-                src="/assets/clinic-room.jpg"
-                alt="Clinic consultation room"
+                src="/assets/img_9320.webp"
+                alt="Dr. Sharmistha operating in Class-100 HEPA NABH hospital surgical suite"
                 sizes="(min-width:768px) 44vw, 90vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/60 via-forest-deep/20 to-transparent" />
               <div className="absolute bottom-3 left-3">
                 <span className="rounded-sm bg-forest/80 px-3 py-1.5 text-xs font-semibold text-ivory backdrop-blur-sm uppercase tracking-wide">
-                  NABH &amp; NABL Accredited
+                  NABH &amp; NABL Accredited OT
                 </span>
               </div>
             </div>

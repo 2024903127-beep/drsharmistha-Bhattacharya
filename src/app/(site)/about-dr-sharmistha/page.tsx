@@ -69,6 +69,62 @@ export default function About() {
           {pillars.map((p) => <div key={p.t} className="border-t border-gold/60 pt-5"><h3 className="font-display text-2xl">{p.t}</h3><p className="mt-2 text-ivory/75">{p.d}</p></div>)}
         </div>
       </section>
+
+      {/* Real Operating Theatre Gallery */}
+      <section className="bg-forest-deep text-ivory py-16 md:py-24">
+        <div className="wrap">
+          <div className="lux-label mb-4 text-gold/70">Clinical Excellence</div>
+          <h2 className="h-section text-ivory max-w-xl mb-4">In the Operating Theatre</h2>
+          <p className="text-ivory/60 max-w-2xl text-base mb-10">
+            Every procedure is planned with microsurgical precision and performed personally by Dr. Sharmistha in NABH-accredited, Class-100 HEPA surgical suites.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-gold/20 shadow-xl group">
+              <SafeImage
+                src="/assets/img_9320.webp"
+                alt="Operating theatre under surgical lighting"
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="text-xs text-gold uppercase tracking-wider font-semibold">Surgical Safety</div>
+                <div className="font-display text-base text-ivory mt-0.5">Class-100 HEPA Surgical Suite</div>
+              </div>
+            </div>
+
+            <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-gold/20 shadow-xl group">
+              <SafeImage
+                src="/assets/img_9318.webp"
+                alt="Dr. Sharmistha Bhattacharyya in surgery"
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="text-xs text-gold uppercase tracking-wider font-semibold">Anaesthesia Monitoring</div>
+                <div className="font-display text-base text-ivory mt-0.5">Continuous Hemodynamic Care</div>
+              </div>
+            </div>
+
+            <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-gold/20 shadow-xl group">
+              <SafeImage
+                src="/assets/img_9577.webp"
+                alt="Surgical loupe precision operating"
+                sizes="(min-width:768px) 33vw, 100vw"
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="text-xs text-gold uppercase tracking-wider font-semibold">Aesthetic Precision</div>
+                <div className="font-display text-base text-ivory mt-0.5">Loupe-Assisted Tissue Handling</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CtaBand />
     </>
   );
