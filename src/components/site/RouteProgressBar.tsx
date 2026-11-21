@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function RouteProgressBar() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -17,7 +16,7 @@ export function RouteProgressBar() {
       }, 350);
       return () => clearTimeout(timer);
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
