@@ -34,12 +34,30 @@ export default async function ServicePage({ params }: P) {
   return (
     <>
       <JsonLd data={[procedureLd(s.name, s.short, path), breadcrumbLd([{ name: "Home", path: "/" }, { name: "Procedures", path: "/services" }, { name: s.name, path }])]} />
-      <section className="bg-sage">
-        <div className="wrap py-12 md:py-16">
-          <nav aria-label="Breadcrumb" className="text-sm text-stone"><Link href="/services" className="underline-offset-4 hover:underline">Procedures</Link> / {s.category}</nav>
-          <h1 className="h-display mt-4 text-5xl text-forest md:text-6xl">{s.name} in Faridabad</h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone">{s.short} Performed by Dr. Sharmistha Bhattacharyya for patients across Faridabad, Gurgaon and Delhi NCR.</p>
+      {/* ── Service Hero ── */}
+      <section className="relative overflow-hidden bg-forest-deep text-ivory">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 70% at 85% 50%, rgba(185,154,101,.07) 0%, transparent 65%)",
+          }}
+        />
+        <div className="gold-line w-full" />
+        <div className="relative wrap py-12 md:py-16">
+          <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-sm text-ivory/50">
+            <Link href="/" className="transition-colors hover:text-gold">Home</Link>
+            <span aria-hidden>/</span>
+            <Link href="/services" className="transition-colors hover:text-gold">Procedures</Link>
+            <span aria-hidden>/</span>
+            <span className="text-gold/80">{s.category}</span>
+          </nav>
+          <p className="lux-label text-gold/70">{s.category}</p>
+          <h1 className="h-display mt-4 text-5xl text-ivory md:text-6xl">{s.name} in Faridabad</h1>
+          <p className="mt-5 max-w-2xl text-lg text-ivory/70">{s.short} Performed by Dr.&nbsp;Sharmistha Bhattacharyya for patients across Faridabad, Gurgaon and Delhi NCR.</p>
         </div>
+        <div className="gold-line w-full" />
       </section>
       <div className="wrap grid gap-12 py-12 lg:grid-cols-[1fr_20rem] lg:py-16">
         <article>
@@ -62,18 +80,51 @@ export default async function ServicePage({ params }: P) {
           )}
           <p className="mt-10 border-l-2 border-gold pl-4 text-sm text-stone">{site.disclaimer}</p>
         </article>
-        <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="border border-forest/20 bg-white p-6">
+        <aside className="lg:sticky lg:top-28 lg:self-start space-y-5">
+          {/* Booking card */}
+          <div className="glass-card-light rounded-sm border border-forest/15 p-6">
+            <p className="lux-label mb-3 text-gold-deep/80">Plan your procedure</p>
             <h2 className="font-display text-2xl text-forest">Plan your {s.name.toLowerCase()}</h2>
-            {facts.length > 0 && <dl className="mt-4 space-y-3 text-sm">{facts.map(([k, v]) => <div key={k}><dt className="text-stone">{k}</dt><dd className="font-medium text-ink">{v}</dd></div>)}</dl>}
-            <Link href={`/book-consultation?service=${encodeURIComponent(s.name)}`} className="btn btn-forest mt-6 w-full">Book online consultation</Link>
+            <div className="my-4 h-px bg-gradient-to-r from-gold/40 to-transparent" />
+            {facts.length > 0 && (
+              <dl className="mb-4 space-y-3 text-sm">
+                {facts.map(([k, v]) => (
+                  <div key={k} className="flex flex-col gap-0.5">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-stone/70">{k}</dt>
+                    <dd className="font-medium text-ink">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            <Link href={`/book-consultation?service=${encodeURIComponent(s.name)}`} className="btn btn-gold w-full">
+              Book online consultation
+            </Link>
             <a href={site.phoneHref} className="btn btn-line mt-3 w-full">Call {site.phone}</a>
-            <p className="mt-4 text-xs text-stone">A written, itemised quotation is given after your consultation.</p>
+            <p className="mt-4 text-xs text-stone/70">A written, itemised quotation is given after your consultation.</p>
           </div>
-          <div className="mt-6 border border-forest/15 p-6">
-            <h2 className="font-display text-xl text-forest">Also in {s.category}</h2>
-            <ul className="mt-3 space-y-1 text-sm">{byCategory(s.category).filter((x) => x.slug !== s.slug).map((x) => <li key={x.slug}><Link className="inline-block py-1.5 text-stone hover:text-gold-deep" href={`/services/${x.slug}`}>{x.name}</Link></li>)}</ul>
-          </div>
+          {/* Related in category */}
+          {byCategory(s.category).filter((x) => x.slug !== s.slug).length > 0 && (
+            <div className="glass-card-light rounded-sm border border-forest/10 p-6">
+              <p className="lux-label mb-3 text-gold-deep/70">Same specialty</p>
+              <h2 className="font-display text-lg text-forest">Also in {s.category}</h2>
+              <div className="my-3 h-px bg-gradient-to-r from-gold/30 to-transparent" />
+              <ul className="space-y-1 text-sm">
+                {byCategory(s.category)
+                  .filter((x) => x.slug !== s.slug)
+                  .map((x) => (
+                    <li key={x.slug}>
+                      <Link
+                        className="group inline-flex w-full items-center gap-2 py-1.5 text-stone transition-colors hover:text-gold-deep"
+                        href={`/services/${x.slug}`}
+                      >
+                        <span className="text-gold/40 transition-transform group-hover:translate-x-0.5" aria-hidden>→</span>
+                        {x.name}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )}
         </aside>
       </div>
       <CtaBand />
