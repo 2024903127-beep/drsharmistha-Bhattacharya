@@ -6,12 +6,33 @@ import { COOKIE, verifySession, type Session } from "./auth";
 import { can, type Module } from "./permissions";
 import { db, dbConfigured } from "./db";
 
-// Re-checks the staff row on every request, so deactivating someone or changing a role takes effect immediately.
+// In-memory cache with 60s TTL so tab switching doesn't do a remote DB query on every click.
+const staffCache = new Map<string, { role: Session["role"]; name: string; active: boolean; exp: number }>();
+
+export function invalidateStaffCache(uid?: string) {
+  if (uid) staffCache.delete(uid);
+  else staffCache.clear();
+}
+
+// Re-checks the staff row with a 60s fast memory cache so tab navigation is instant,
+// while deactivations or role changes take effect immediately via invalidateStaffCache().
 export const getSession = cache(async (): Promise<Session | null> => {
-  const s = await verifySession((await cookies()).get(COOKIE)?.value);
+  const cookieVal = (await cookies()).get(COOKIE)?.value;
+  const s = await verifySession(cookieVal);
   if (!s || !dbConfigured()) return s;
+
+  const now = Date.now();
+  const cached = staffCache.get(s.uid);
+  if (cached && now < cached.exp) {
+    return cached.active ? { ...s, role: cached.role, name: cached.name } : null;
+  }
+
   const { data } = await db().from("staff").select("full_name,role,active").eq("id", s.uid).maybeSingle();
-  return data?.active ? { ...s, role: data.role, name: data.full_name } : null;
+  if (data) {
+    staffCache.set(s.uid, { role: data.role, name: data.full_name, active: Boolean(data.active), exp: now + 60_000 });
+    return data.active ? { ...s, role: data.role, name: data.full_name } : null;
+  }
+  return null;
 });
 
 // Permission is checked on the server for every protected page. Never trust the UI alone.

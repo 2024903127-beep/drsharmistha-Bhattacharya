@@ -12,7 +12,13 @@ export async function POST(req: Request) {
   const { email: raw, password } = (await req.json().catch(() => ({}))) as { email?: string; password?: string };
   const email = raw?.trim().toLowerCase() ?? "";
   if (!email || !password) return deny("Enter your email and password.", 400);
-  if (!(await allow(`login:ip:${clientIp(req)}`, 20, 600)) || !(await allow(`login:${email}`, 8, 600))) return deny("Too many attempts. Wait ten minutes and try again.", 429);
+
+  // Run rate limit checks in parallel for lower latency
+  const [ipOk, emailOk] = await Promise.all([
+    allow(`login:ip:${clientIp(req)}`, 20, 600),
+    allow(`login:${email}`, 8, 600),
+  ]);
+  if (!ipOk || !emailOk) return deny("Too many attempts. Wait ten minutes and try again.", 429);
 
   let user: { uid: string; name: string; role: "admin" | "doctor" | "receptionist" | "coordinator" } | null = null;
   if (dbConfigured()) {
@@ -30,8 +36,14 @@ export async function POST(req: Request) {
     if (!u || password !== demoPassword()) return deny("Email or password is incorrect.", 401);
     user = { uid: u.uid, name: u.name, role: u.role };
   }
-  await audit(user, "signed_in", "staff", user.uid);
+
+  // Generate session token and write audit log concurrently
+  const [token] = await Promise.all([
+    signSession(user),
+    audit(user, "signed_in", "staff", user.uid).catch(() => null),
+  ]);
+
   const res = NextResponse.json({ ok: true, role: user.role });
-  res.cookies.set(COOKIE, await signSession(user), { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 8 * 3600 });
+  res.cookies.set(COOKIE, token, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 8 * 3600 });
   return res;
 }

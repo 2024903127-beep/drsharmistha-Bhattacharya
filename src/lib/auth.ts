@@ -9,7 +9,8 @@ function secret() {
   if (!s && process.env.NODE_ENV === "production") throw new Error("AUTH_SECRET is required in production");
   return s ?? "dev-only-secret-change-me";
 }
-const key = () => crypto.subtle.importKey("raw", enc.encode(secret()), { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]);
+let _cachedKey: CryptoKey | null = null;
+const key = async () => (_cachedKey ??= await crypto.subtle.importKey("raw", enc.encode(secret()), { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]));
 const b64 = (b: ArrayBuffer | Uint8Array) => btoa(String.fromCharCode(...new Uint8Array(b))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const unb64 = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
 

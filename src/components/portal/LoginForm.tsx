@@ -19,8 +19,8 @@ export function LoginForm({ next, demo }: { next: string; demo: boolean }) {
     }).then((x) => x.json()).catch(() => ({ ok: false, error: "Network error. Try again." }));
 
     if (r.ok) {
-      router.replace(next.startsWith("/staff") ? next : "/staff/dashboard");
-      router.refresh();
+      const dest = next && next.startsWith("/staff") ? next : "/staff/dashboard";
+      window.location.href = dest;
     } else {
       setErr(r.error || "Could not sign in.");
       setBusy(false);

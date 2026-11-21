@@ -19,7 +19,7 @@ export function Shell({ nav, user, children }: { nav: { mod: Module; label: stri
       {nav.map((n) => {
         const I = icons[n.mod], active = path === n.href || path.startsWith(`${n.href}/`);
         return (
-          <Link key={n.mod} href={n.href} onClick={() => setOpen(false)} aria-current={active ? "page" : undefined}
+          <Link key={n.mod} href={n.href} prefetch={true} onClick={() => setOpen(false)} aria-current={active ? "page" : undefined}
             className={`flex min-h-10 items-center gap-3 rounded-xl px-3.5 py-1.5 text-sm font-medium transition-colors ${active ? "bg-p-primary text-white shadow-sm" : "text-p-text hover:bg-white/80"}`}>
             <I size={17} aria-hidden />{n.label}
           </Link>

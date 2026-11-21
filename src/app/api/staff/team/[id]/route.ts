@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { apiSession } from "@/lib/session";
+import { apiSession, invalidateStaffCache } from "@/lib/session";
 import { db, dbConfigured } from "@/lib/db";
 import { EmailService } from "@/lib/integrations/brevo";
 import { audit } from "@/lib/audit";
@@ -87,6 +87,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     }
 
     await audit(s, "changed_staff", "staff", id, updates);
+    invalidateStaffCache(id);
   }
 
   return NextResponse.json({ ok: true });
