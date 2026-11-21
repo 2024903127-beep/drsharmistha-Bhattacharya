@@ -240,21 +240,21 @@ export default function Home() {
               <Link
                 key={cat.name}
                 href={`/services#${slugify(cat.name)}`}
-                className="glass-card group block overflow-hidden rounded-2xl border border-white/10 bg-forest-deep/60 backdrop-blur-md transition-all duration-300 hover:border-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40"
+                className="glass-card group block overflow-hidden rounded-2xl border border-white/10 bg-forest-deep/90 md:bg-forest-deep/60 md:backdrop-blur-md transition-[border-color,box-shadow,transform] duration-300 transform-gpu hover:border-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40"
               >
                 {/* Photo Thumbnail */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-forest/40">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-forest/40 transform-gpu">
                   <SafeImage
                     src={cat.image}
                     alt={cat.name}
                     priority={false}
                     sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 transform-gpu"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/30 to-transparent opacity-80 group-hover:opacity-65 transition-opacity" />
                   
                   {/* Floating Category Badge (Speech Studio style) */}
-                  <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-forest-deep/90 px-2.5 py-0.5 text-[11px] font-medium text-ivory backdrop-blur-md border border-white/15 shadow-sm">
+                  <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-forest-deep/90 px-2.5 py-0.5 text-[11px] font-medium text-ivory md:backdrop-blur-sm border border-white/15 shadow-sm transform-gpu">
                     <span style={{ color: cat.accent }}>{cat.glyph}</span>
                     <span className="font-sans tracking-wide text-ivory/90">{cat.name}</span>
                   </div>
@@ -379,7 +379,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           § 4  WHY US — Glassmorphic pillars
       ══════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-forest py-16 md:py-24 lg:py-28">
+      <section className="section-contain relative w-full overflow-hidden bg-forest py-16 md:py-24 lg:py-28">
         <div className="absolute inset-0 opacity-[.06]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, #b99a65 0, #b99a65 1px, transparent 0, transparent 50%)", backgroundSize: "28px 28px" }} />
         <div className="absolute inset-0 bg-gradient-to-br from-forest-deep/50 via-transparent to-forest-deep/30" />
 
@@ -411,7 +411,7 @@ export default function Home() {
           Mobile: single col with compact cards
           Desktop: sticky left + right timeline
       ══════════════════════════════════════════ */}
-      <section className="bg-ivory w-full py-16 md:py-24 lg:py-28">
+      <section className="section-contain bg-ivory w-full py-16 md:py-24 lg:py-28">
         <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-[18rem_1fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
@@ -442,7 +442,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           § 6  TESTIMONIALS — Glass cards
       ══════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-forest-deep py-16 md:py-24 lg:py-28">
+      <section className="section-contain relative w-full overflow-hidden bg-forest-deep py-16 md:py-24 lg:py-28">
         <div className="absolute inset-0 opacity-[.05]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #b99a65 1px, transparent 0)", backgroundSize: "24px 24px" }} />
         <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
@@ -486,7 +486,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           § 7  HOSPITAL
       ══════════════════════════════════════════ */}
-      <section className="bg-sage w-full py-16 md:py-24 lg:py-28">
+      <section className="section-contain bg-sage w-full py-16 md:py-24 lg:py-28">
         <div className="wrap grid gap-8 md:grid-cols-2 md:items-center md:gap-14 lg:gap-20">
           <div>
             <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Where surgery happens</div>
@@ -547,7 +547,7 @@ export default function Home() {
           Tablet: 2-col wider
           Desktop: 3-col
       ══════════════════════════════════════════ */}
-      <section className="bg-ivory w-full py-16 md:py-24 lg:py-28">
+      <section className="section-contain bg-ivory w-full py-16 md:py-24 lg:py-28">
         <div className="wrap">
           <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Educational content</div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-14">
@@ -567,15 +567,17 @@ export default function Home() {
                   href={r.u}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card-light group block overflow-hidden border border-forest/8"
+                  className="glass-card-light group block overflow-hidden border border-forest/8 transform-gpu"
                 >
-                  <div className="relative w-full overflow-hidden bg-sage" style={{ aspectRatio: "4/5" }}>
+                  <div className="relative w-full overflow-hidden bg-sage transform-gpu" style={{ aspectRatio: "4/5" }}>
                     <Image
                       src={REEL_POSTERS[i % REEL_POSTERS.length]}
                       alt={r.t}
                       fill
+                      loading="lazy"
+                      decoding="async"
                       sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 transform-gpu"
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-forest-deep/20">
                       <div className="grid size-10 md:size-12 place-items-center rounded-full bg-gold/90 backdrop-blur-sm shadow-lg">
@@ -602,7 +604,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           § 9  FAQ
       ══════════════════════════════════════════ */}
-      <section className="bg-sage w-full py-16 md:py-24 lg:py-28">
+      <section className="section-contain bg-sage w-full py-16 md:py-24 lg:py-28">
         <div className="wrap">
           <div className="lux-label mb-4" style={{ color: "var(--color-gold-deep)" }}>Common questions</div>
           <h2 className="h-section mb-8 md:mb-12 max-w-2xl text-forest">Questions patients ask first</h2>

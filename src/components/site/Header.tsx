@@ -17,11 +17,28 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  /* Scroll-aware styling */
+  /* Scroll-aware styling with rAF throttling and threshold deduplication */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    let rafId: number | null = null;
+    let lastScrolled = false;
+
+    const onScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        const isPast = window.scrollY > 40;
+        if (isPast !== lastScrolled) {
+          lastScrolled = isPast;
+          setScrolled(isPast);
+        }
+        rafId = null;
+      });
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   /* Lock body scroll when drawer open */
@@ -36,7 +53,7 @@ export function Header() {
     <>
       {/* ── Top bar ─────────────────────────────────────────────── */}
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-500 ${
+        className={`sticky top-0 z-40 w-full transition-[background-color,border-color,box-shadow] duration-300 transform-gpu ${
           scrolled
             ? "bg-forest-deep/96 backdrop-blur-md border-b border-gold/15 shadow-[0_4px_24px_rgba(0,0,0,.35)]"
             : "bg-ivory border-b border-forest/10"
