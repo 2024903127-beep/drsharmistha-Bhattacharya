@@ -4,12 +4,12 @@ import { StickyCta } from "@/components/site/StickyCta";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="relative flex min-h-screen w-full max-w-[100vw] flex-col overflow-x-hidden">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-gold focus:p-3">Skip to content</a>
       <Header />
-      <main id="main">{children}</main>
+      <main id="main" className="flex-1 page-luxury-enter">{children}</main>
       <Footer />
       <StickyCta />
-    </>
+    </div>
   );
 }

@@ -125,8 +125,8 @@ export function Header() {
         onClick={close}
         className={`fixed inset-0 z-50 transition-all duration-400 md:hidden ${
           open
-            ? "bg-forest-deep/60 backdrop-blur-sm pointer-events-auto"
-            : "bg-transparent pointer-events-none backdrop-blur-none"
+            ? "bg-forest-deep/60 backdrop-blur-sm pointer-events-auto opacity-100 visible"
+            : "bg-transparent pointer-events-none backdrop-blur-none opacity-0 invisible"
         }`}
       />
 
@@ -136,9 +136,11 @@ export function Header() {
         aria-modal="true"
         aria-label="Navigation menu"
         className={`fixed top-0 right-0 z-50 h-full w-[82vw] max-w-[360px] flex flex-col
-          bg-forest-deep text-ivory shadow-[-8px_0_48px_rgba(0,0,0,.55)]
-          transition-transform duration-400 ease-[cubic-bezier(.4,0,.2,1)] md:hidden
-          ${open ? "translate-x-0" : "translate-x-full"}`}
+          bg-forest-deep text-ivory
+          transition-all duration-400 ease-[cubic-bezier(.4,0,.2,1)] md:hidden
+          ${open
+            ? "translate-x-0 shadow-[-8px_0_48px_rgba(0,0,0,.55)] visible pointer-events-auto"
+            : "translate-x-full shadow-none invisible pointer-events-none"}`}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-ivory/10">
