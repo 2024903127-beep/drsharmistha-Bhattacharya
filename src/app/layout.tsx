@@ -52,8 +52,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
+    url: site.url,
     siteName: site.brand,
-    images: [{ url: "/assets/og.jpg", width: 1200, height: 630, alt: "Dr. Sharmistha Bhattacharyya — Plastic Surgeon in Faridabad" }],
+    images: [
+      {
+        url: `${site.url}/assets/og.jpg`,
+        secureUrl: `${site.url}/assets/og.jpg`,
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Dr. Sharmistha Bhattacharyya — Plastic Surgeon in Faridabad",
+      },
+    ],
   },
   twitter: { card: "summary_large_image", creator: "@drsharmistha", site: "@drsharmistha" },
   robots: {

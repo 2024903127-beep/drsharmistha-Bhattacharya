@@ -1,8 +1,14 @@
+const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const resolvedSiteUrl =
+  envUrl && !envUrl.includes("localhost") && !envUrl.includes("127.0.0.1")
+    ? envUrl.replace(/\/+$/, "")
+    : "https://drsharmisthabhattacharyya.com";
+
 export const site = {
   name: "Dr. Sharmistha Bhattacharyya",
   brand: "Dr Sharmistha Bhattacharyya | Plastic and Aesthetic Surgery",
   tagline: "Precision surgery, crafted with restraint.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharmisthabhattacharyya.com",
+  url: resolvedSiteUrl,
   phone: "+91 96672 07009",
   phoneHref: "tel:+919667207009",
   whatsapp:

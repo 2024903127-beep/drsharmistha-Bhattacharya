@@ -26,7 +26,16 @@ export function buildMeta(o: {
     openGraph: {
       title: o.title, description: o.description, url, siteName: site.brand,
       type: o.type ?? "website", locale: "en_IN",
-      images: [{ url: img, width: 1200, height: 630, alt: o.title }],
+      images: [
+        {
+          url: img,
+          secureUrl: img,
+          width: 1200,
+          height: 630,
+          type: "image/jpeg",
+          alt: o.title,
+        },
+      ],
       ...(o.publishedTime ? { publishedTime: o.publishedTime } : {}),
       ...(o.modifiedTime ? { modifiedTime: o.modifiedTime } : {}),
     },
