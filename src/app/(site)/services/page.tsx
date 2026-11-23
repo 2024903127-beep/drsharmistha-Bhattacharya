@@ -78,7 +78,7 @@ export default function Services() {
           <section
             key={c}
             id={slugify(c)}
-            className={`scroll-mt-24 py-16 md:py-20 ${isDark ? "bg-forest-deep" : "bg-ivory"}`}
+            className={`scroll-mt-28 md:scroll-mt-36 py-16 md:py-24 ${isDark ? "bg-forest-deep" : "bg-ivory"}`}
           >
             <div className="wrap">
               {/* Section header */}
@@ -97,15 +97,15 @@ export default function Services() {
               </div>
 
               {/* Service cards grid */}
-              <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {byCategory(c).map((s, si) => (
                   <li key={s.slug}>
                     <Link
                       href={`/services/${s.slug}`}
-                      className={`group flex h-full flex-col rounded-sm p-5 md:p-6 transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-gold ${
+                      className={`group flex h-full flex-col rounded-2xl p-6 md:p-7 transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-gold shadow-sm hover:shadow-xl hover:-translate-y-1 ${
                         isDark
-                          ? "glass-card text-ivory"
-                          : "glass-card-light text-ink border border-forest/10 hover:border-gold/40"
+                          ? "glass-card text-ivory border border-white/10 hover:border-gold/50"
+                          : "glass-card-light text-ink border border-forest/15 hover:border-gold-deep/40 bg-white/70"
                       }`}
                       style={{ animationDelay: `${si * 60}ms`, contain: "none" }}
                     >
@@ -136,7 +136,7 @@ export default function Services() {
                       </h3>
 
                       {/* Gold divider */}
-                      <div className="my-3 h-px bg-gradient-to-r from-gold/40 to-transparent" />
+                      <div className="my-3.5 h-px bg-gradient-to-r from-gold/40 to-transparent" />
 
                       {/* Description */}
                       <p
@@ -148,14 +148,14 @@ export default function Services() {
                       {/* Fee badge */}
                       {s.fee && (
                         <div
-                          className={`mt-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${
+                          className={`mt-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-medium ${
                             isDark
-                              ? "border border-gold/20 bg-gold/10 text-gold/80"
-                              : "border border-forest/10 bg-sage/70 text-stone"
+                              ? "border border-gold/20 bg-gold/10 text-gold/90"
+                              : "border border-forest/10 bg-sage/60 text-forest"
                           }`}
                         >
-                          <span className="text-gold">₹</span>
-                          {s.fee}
+                          <span className="text-gold font-bold">₹</span>
+                          <span className="font-sans">{s.fee}</span>
                         </div>
                       )}
 

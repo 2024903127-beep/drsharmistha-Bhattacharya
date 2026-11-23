@@ -11,7 +11,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <RouteProgressBar />
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-gold focus:p-3">Skip to content</a>
       <Header />
-      <main id="main" className="flex-1 page-luxury-enter">{children}</main>
+      <main id="main" className="flex-1 page-luxury-enter pb-16 md:pb-0">{children}</main>
       <Footer />
       <StickyCta />
     </div>

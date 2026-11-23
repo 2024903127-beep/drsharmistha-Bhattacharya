@@ -65,7 +65,12 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: { card: "summary_large_image", creator: "@drsharmistha", site: "@drsharmistha" },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@drsharmistha",
+    site: "@drsharmistha",
+    images: [`${site.url}/assets/og.jpg`],
+  },
   robots: {
     index: true, follow: true,
     googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },

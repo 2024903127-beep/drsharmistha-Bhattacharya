@@ -75,31 +75,44 @@ export default async function ServicePage({ params }: P) {
           {s.flagship && (
             <section className="mt-14 border-t border-forest/15 pt-8">
               <h2 className="font-display text-2xl text-forest">{s.name} for patients from</h2>
-              <ul className="mt-4 flex flex-wrap gap-3">{locations.map((l) => <li key={l.slug}><Link className="btn btn-line !min-h-11" href={`/services/${s.slug}/${l.slug}`}>{s.name} in {l.name}</Link></li>)}</ul>
+              <ul className="mt-4 flex flex-wrap gap-2.5">
+                {locations.map((l) => (
+                  <li key={l.slug} className="max-w-full">
+                    <Link
+                      className="btn btn-line !min-h-10 !px-4 !py-2 text-xs md:text-sm text-center max-w-full whitespace-normal"
+                      href={`/services/${s.slug}/${l.slug}`}
+                    >
+                      {s.name} in {l.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
-          <p className="mt-10 border-l-2 border-gold pl-4 text-sm text-stone">{site.disclaimer}</p>
+          <div className="mt-10 border-l-2 border-gold pl-4 py-1 text-sm text-stone leading-relaxed bg-forest/[0.03] rounded-r p-3">
+            <p>{site.disclaimer}</p>
+          </div>
         </article>
-        <aside className="lg:sticky lg:top-28 lg:self-start space-y-5">
+        <aside className="lg:sticky lg:top-28 lg:self-start space-y-5 w-full min-w-0">
           {/* Booking card */}
-          <div className="glass-card-light rounded-sm border border-forest/15 p-6 overflow-visible" style={{contain: "none"}}>
-            <p className="lux-label mb-3 text-gold-deep/80">Plan your procedure</p>
+          <div className="glass-card-light rounded-sm border border-forest/15 p-5 md:p-6 overflow-visible w-full" style={{contain: "none"}}>
+            <p className="lux-label mb-2 text-gold-deep/80">Plan your procedure</p>
             <h2 className="font-display text-2xl text-forest">Plan your {s.name.toLowerCase()}</h2>
             <div className="my-4 h-px bg-gradient-to-r from-gold/40 to-transparent" />
             {facts.length > 0 && (
-              <dl className="mb-4 space-y-3 text-sm">
+              <dl className="mb-5 space-y-3.5 text-sm">
                 {facts.map(([k, v]) => (
-                  <div key={k} className="flex flex-col gap-0.5">
+                  <div key={k} className="flex flex-col gap-1">
                     <dt className="text-xs font-semibold uppercase tracking-wider text-stone/70">{k}</dt>
-                    <dd className="font-medium text-ink break-words min-w-0">{v}</dd>
+                    <dd className="font-medium text-ink break-normal leading-snug">{v}</dd>
                   </div>
                 ))}
               </dl>
             )}
-            <Link href={`/book-consultation?service=${encodeURIComponent(s.name)}`} className="btn btn-gold w-full">
+            <Link href={`/book-consultation?service=${encodeURIComponent(s.name)}`} className="btn btn-gold w-full !min-h-12 text-sm font-semibold">
               Book online consultation
             </Link>
-            <a href={site.phoneHref} className="btn btn-line mt-3 w-full">Call {site.phone}</a>
+            <a href={site.phoneHref} className="btn btn-line mt-3 w-full !min-h-12 text-sm font-semibold">Call {site.phone}</a>
             <p className="mt-4 text-xs text-stone/70">A written, itemised quotation is given after your consultation.</p>
           </div>
           {/* Related in category */}

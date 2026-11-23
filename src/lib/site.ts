@@ -2,7 +2,7 @@ const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
 const resolvedSiteUrl =
   envUrl && !envUrl.includes("localhost") && !envUrl.includes("127.0.0.1")
     ? envUrl.replace(/\/+$/, "")
-    : "https://drsharmisthabhattacharyya.com";
+    : "https://www.drsharmisthabhattacharyya.com";
 
 export const site = {
   name: "Dr. Sharmistha Bhattacharyya",

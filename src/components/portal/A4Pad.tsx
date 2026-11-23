@@ -11,7 +11,7 @@ const colors = [["#111827", "Black"], ["#1d4ed8", "Blue"], ["#b91c1c", "Red"]];
 
 /**
  * Midpoint Quadratic Bézier Curve Renderer
- * Produces organic, fluid handwriting strokes mimicking natural fountain/gel pen ink.
+ * Replays completed strokes with organic, fluid handwriting geometry.
  */
 function drawStroke(g: CanvasRenderingContext2D, s: Stroke) {
   const pts = s.pts;
@@ -29,16 +29,16 @@ function drawStroke(g: CanvasRenderingContext2D, s: Stroke) {
   g.strokeStyle = g.fillStyle = s.color;
 
   if (pts.length === 1) {
-    const r = (s.tool === "eraser" ? s.size * 5 : s.size * (0.6 + pts[0].p * 0.8)) / 2;
+    const r = (s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + pts[0].p * 0.6)) / 2;
     g.beginPath();
-    g.arc(pts[0].x, pts[0].y, r, 0, Math.PI * 2);
+    g.arc(pts[0].x, pts[0].y, Math.max(0.5, r), 0, Math.PI * 2);
     g.fill();
     g.restore();
     return;
   }
 
   if (pts.length === 2) {
-    g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.6 + ((pts[0].p + pts[1].p) / 2) * 0.8);
+    g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + ((pts[0].p + pts[1].p) / 2) * 0.6);
     g.beginPath();
     g.moveTo(pts[0].x, pts[0].y);
     g.lineTo(pts[1].x, pts[1].y);
@@ -56,62 +56,15 @@ function drawStroke(g: CanvasRenderingContext2D, s: Stroke) {
     const yc = pts[i].y;
     const xm = (pts[i].x + pts[i + 1].x) / 2;
     const ym = (pts[i].y + pts[i + 1].y) / 2;
-    g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.6 + pts[i].p * 0.8);
+    g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + pts[i].p * 0.6);
     g.quadraticCurveTo(xc, yc, xm, ym);
   }
 
   const last = pts[pts.length - 1];
   const lastPrev = pts[pts.length - 2];
-  g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.6 + last.p * 0.8);
+  g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + last.p * 0.6);
   g.quadraticCurveTo(lastPrev.x, lastPrev.y, last.x, last.y);
   g.stroke();
-
-  g.restore();
-}
-
-/**
- * Incremental curve renderer for real-time pointer move events.
- * Only strokes the new segments between midpoints to avoid re-drawing old points.
- */
-function drawIncremental(g: CanvasRenderingContext2D, s: Stroke, fromIndex: number) {
-  const pts = s.pts;
-  if (!pts || pts.length < 2) return;
-
-  g.save();
-  g.setTransform(S, 0, 0, S, 0, 0);
-  g.lineCap = "round";
-  g.lineJoin = "round";
-  if (s.tool === "eraser") {
-    g.globalCompositeOperation = "destination-out";
-  } else {
-    g.globalCompositeOperation = "source-over";
-  }
-  g.strokeStyle = g.fillStyle = s.color;
-
-  for (let i = Math.max(1, fromIndex); i < pts.length; i++) {
-    g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.6 + pts[i].p * 0.8);
-    const p0 = pts[i - 1];
-    const p1 = pts[i];
-
-    if (i === 1) {
-      const mx = (p0.x + p1.x) / 2;
-      const my = (p0.y + p1.y) / 2;
-      g.beginPath();
-      g.moveTo(p0.x, p0.y);
-      g.lineTo(mx, my);
-      g.stroke();
-    } else {
-      const prev = pts[i - 2];
-      const prevMidX = (prev.x + p0.x) / 2;
-      const prevMidY = (prev.y + p0.y) / 2;
-      const currMidX = (p0.x + p1.x) / 2;
-      const currMidY = (p0.y + p1.y) / 2;
-      g.beginPath();
-      g.moveTo(prevMidX, prevMidY);
-      g.quadraticCurveTo(p0.x, p0.y, currMidX, currMidY);
-      g.stroke();
-    }
-  }
 
   g.restore();
 }
@@ -125,6 +78,7 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
   const strokes = useRef<Stroke[]>([]);
   const redo = useRef<Stroke[]>([]);
   const cur = useRef<Stroke | null>(null);
+  const lastDrawnIdx = useRef(0);
 
   // Active pointer tracking
   const activePointerId = useRef<number | null>(null);
@@ -233,7 +187,7 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
     }
   }, [key, redraw, sync]);
 
-  // Coordinate mapping with cached bounding rect for sub-millisecond conversion
+  // Coordinate mapping from screen pixels to logical 794x1123 A4 units
   const at = useCallback((e: { clientX: number; clientY: number; pointerType?: string; pressure?: number }, r: DOMRect): Pt => {
     const p = e.pointerType === "pen" ? (e.pressure && e.pressure > 0 ? e.pressure : 0.5) : 0.5;
     return {
@@ -244,26 +198,70 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
   }, []);
 
   /**
+   * High-Performance Real-Time Incremental Renderer
+   * Directly draws midpoint Bézier curve segments without re-rendering past points.
+   */
+  const drawLiveSegments = useCallback((g: CanvasRenderingContext2D, s: Stroke) => {
+    const pts = s.pts;
+    if (pts.length < 2) return;
+
+    g.save();
+    g.setTransform(S, 0, 0, S, 0, 0);
+    g.lineCap = "round";
+    g.lineJoin = "round";
+    if (s.tool === "eraser") {
+      g.globalCompositeOperation = "destination-out";
+    } else {
+      g.globalCompositeOperation = "source-over";
+    }
+    g.strokeStyle = g.fillStyle = s.color;
+
+    const start = Math.max(1, lastDrawnIdx.current);
+    for (let i = start; i < pts.length; i++) {
+      g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + pts[i].p * 0.6);
+      const p0 = pts[i - 1];
+      const p1 = pts[i];
+
+      if (i === 1) {
+        const mx = (p0.x + p1.x) / 2;
+        const my = (p0.y + p1.y) / 2;
+        g.beginPath();
+        g.moveTo(p0.x, p0.y);
+        g.lineTo(mx, my);
+        g.stroke();
+      } else {
+        const prev = pts[i - 2];
+        const prevMidX = (prev.x + p0.x) / 2;
+        const prevMidY = (prev.y + p0.y) / 2;
+        const currMidX = (p0.x + p1.x) / 2;
+        const currMidY = (p0.y + p1.y) / 2;
+        g.beginPath();
+        g.moveTo(prevMidX, prevMidY);
+        g.quadraticCurveTo(p0.x, p0.y, currMidX, currMidY);
+        g.stroke();
+      }
+    }
+
+    lastDrawnIdx.current = pts.length - 1;
+    g.restore();
+  }, []);
+
+  /**
    * NATIVE POINTER EVENT LISTENERS
-   * Binding directly with { passive: false } and calling e.preventDefault() bypasses
-   * Android Chrome's 50-100ms gesture recognition delay.
+   * Configured with { passive: false } and touch-action: none for sub-frame response.
    */
   useEffect(() => {
     const canvas = ink.current;
     if (!canvas) return;
 
     const onPointerDown = (e: PointerEvent) => {
+      // 1. Hand tool allows touch panning and zooming without drawing
       if (toolRef.current === "hand") return;
 
-      // 1. STYLUS DETECTION & AUTO-PALM LOCK
+      // 2. Stylus detection & Smart Preemption
       if (e.pointerType === "pen") {
-        if (!stylusOnlyRef.current) {
-          setStylusOnly(true);
-        }
-
-        // STYLUS PREEMPTION:
-        // If user rested palm first (which registered a touch), pen immediately cancels
-        // the accidental touch stroke and takes over drawing!
+        // If palm or finger touched slightly before stylus tip hit the screen,
+        // pen preempts the accidental touch stroke immediately!
         if (activePointerId.current !== null && activePointerType.current === "touch") {
           try {
             canvas.releasePointerCapture(activePointerId.current);
@@ -273,27 +271,17 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
           cur.current = null;
           redraw();
         }
-      }
-
-      // 2. PALM REJECTION
-      if (stylusOnlyRef.current && e.pointerType === "touch") {
-        // In stylus-only mode, completely ignore all touch contacts (palm, wrist, fingers)
+      } else if (stylusOnlyRef.current && e.pointerType === "touch") {
+        // Strict palm protection mode: doctor locked out touch drawing so hand can rest freely
         return;
       }
 
-      if (e.pointerType === "touch") {
-        // Filter out large contact patches (palm/wrist contact)
-        if ((e.width && e.width > 24) || (e.height && e.height > 24)) {
-          return;
-        }
-      }
-
-      // 3. SINGLE ACTIVE POINTER ISOLATION
+      // 3. Single active pointer isolation:
+      // While one pointer is active (pen or finger), reject any secondary fingers or palm touch
       if (activePointerId.current !== null) {
         return;
       }
 
-      // Prevent Android scroll/zoom engine from delaying input
       e.preventDefault();
       e.stopPropagation();
 
@@ -306,16 +294,33 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
 
       const r = canvas.getBoundingClientRect();
       const pt = at(e, r);
+
       cur.current = {
         tool: toolRef.current,
         color: colorRef.current,
         size: sizeRef.current,
         pts: [pt],
       };
+      lastDrawnIdx.current = 0;
 
       const g = getInkCtx();
       if (g) {
-        drawStroke(g, cur.current);
+        // Immediate visual feedback dot at touch point
+        g.save();
+        g.setTransform(S, 0, 0, S, 0, 0);
+        g.lineCap = "round";
+        g.lineJoin = "round";
+        if (toolRef.current === "eraser") {
+          g.globalCompositeOperation = "destination-out";
+        } else {
+          g.globalCompositeOperation = "source-over";
+        }
+        g.fillStyle = colorRef.current;
+        const dotR = (toolRef.current === "eraser" ? sizeRef.current * 5 : sizeRef.current * (0.7 + pt.p * 0.6)) / 2;
+        g.beginPath();
+        g.arc(pt.x, pt.y, Math.max(0.5, dotR), 0, Math.PI * 2);
+        g.fill();
+        g.restore();
       }
     };
 
@@ -333,26 +338,22 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
       const r = canvas.getBoundingClientRect();
       if (!r) return;
 
-      // Extract hardware coalesced events (120Hz/240Hz stylus sampling on Android & iPad)
+      // Hardware coalesced events extract 120Hz/240Hz sampling between frames
       const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
-      const from = s.pts.length;
       for (let i = 0; i < evs.length; i++) {
         s.pts.push(at(evs[i], r));
       }
 
       const g = getInkCtx();
       if (g) {
-        drawIncremental(g, s, from);
+        drawLiveSegments(g, s);
       }
     };
 
-    const onPointerUp = (e: PointerEvent) => {
+    const finishStroke = (e: PointerEvent, isCancel: boolean) => {
       if (activePointerId.current === null || e.pointerId !== activePointerId.current) {
         return;
       }
-
-      e.preventDefault();
-      e.stopPropagation();
 
       try {
         if (canvas.hasPointerCapture(e.pointerId)) {
@@ -363,40 +364,61 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
       activePointerId.current = null;
       activePointerType.current = null;
 
-      if (cur.current && cur.current.pts.length > 0) {
-        const s = cur.current;
-        const g = getInkCtx();
-        if (g && s.pts.length >= 2) {
-          // Draw clean stroke completion
-          drawStroke(g, s);
-        }
+      const s = cur.current;
+      cur.current = null;
+      lastDrawnIdx.current = 0;
 
-        strokes.current.push(s);
-        redo.current = [];
-        cur.current = null;
-        sync();
-        try {
-          localStorage.setItem(key, JSON.stringify(strokes.current));
-        } catch {}
-      } else {
-        cur.current = null;
+      if (!s || s.pts.length === 0) return;
+
+      // On Android pointercancel, commit the stroke if user drew legitimate marks
+      if (isCancel && s.pts.length < 2) {
+        redraw();
+        return;
       }
+
+      const g = getInkCtx();
+      if (g && s.pts.length >= 2) {
+        // Draw the final closing segment to the last coordinate
+        const pts = s.pts;
+        const last = pts[pts.length - 1];
+        const lastPrev = pts[pts.length - 2];
+        const prevMidX = (lastPrev.x + pts[Math.max(0, pts.length - 3)].x) / 2;
+        const prevMidY = (lastPrev.y + pts[Math.max(0, pts.length - 3)].y) / 2;
+
+        g.save();
+        g.setTransform(S, 0, 0, S, 0, 0);
+        g.lineCap = "round";
+        g.lineJoin = "round";
+        if (s.tool === "eraser") {
+          g.globalCompositeOperation = "destination-out";
+        } else {
+          g.globalCompositeOperation = "source-over";
+        }
+        g.strokeStyle = s.color;
+        g.lineWidth = s.tool === "eraser" ? s.size * 5 : s.size * (0.7 + last.p * 0.6);
+        g.beginPath();
+        g.moveTo(prevMidX, prevMidY);
+        g.quadraticCurveTo(lastPrev.x, lastPrev.y, last.x, last.y);
+        g.stroke();
+        g.restore();
+      }
+
+      strokes.current.push(s);
+      redo.current = [];
+      sync();
+      try {
+        localStorage.setItem(key, JSON.stringify(strokes.current));
+      } catch {}
+    };
+
+    const onPointerUp = (e: PointerEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      finishStroke(e, false);
     };
 
     const onPointerCancel = (e: PointerEvent) => {
-      if (activePointerId.current === e.pointerId) {
-        try {
-          if (canvas.hasPointerCapture(e.pointerId)) {
-            canvas.releasePointerCapture(e.pointerId);
-          }
-        } catch {}
-
-        activePointerId.current = null;
-        activePointerType.current = null;
-        cur.current = null;
-        // On pointercancel (e.g. Android palm rejection trigger), wipe stray mark cleanly
-        redraw();
-      }
+      finishStroke(e, true);
     };
 
     canvas.addEventListener("pointerdown", onPointerDown, { passive: false });
@@ -410,7 +432,7 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
       canvas.removeEventListener("pointerup", onPointerUp);
       canvas.removeEventListener("pointercancel", onPointerCancel);
     };
-  }, [at, getInkCtx, key, redraw, sync]);
+  }, [at, drawLiveSegments, getInkCtx, key, redraw, sync]);
 
   const undo = useCallback(() => {
     const s = strokes.current.pop();
@@ -498,7 +520,7 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
   }
 
   const tb = (on: boolean) =>
-    `grid size-11 place-items-center rounded-xl border ${on ? "border-p-primary bg-p-primary text-white" : "border-p-border bg-white text-p-text"} disabled:opacity-40 transition-colors`;
+    `grid size-11 place-items-center rounded-xl border ${on ? "border-p-primary bg-p-primary text-white shadow-sm" : "border-p-border bg-white text-p-text hover:bg-p-surface"} disabled:opacity-40 transition-colors`;
 
   return (
     <div>
@@ -523,10 +545,10 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
               ? "border-emerald-600 bg-emerald-50 text-emerald-800 shadow-sm"
               : "border-p-border bg-white text-p-muted hover:text-p-text"
           }`}
-          title={stylusOnly ? "Stylus-only active: Resting palm will not draw" : "Touch & Stylus drawing allowed"}
+          title={stylusOnly ? "Stylus-only active: Resting palm will not draw" : "All inputs active: Touch and stylus both draw"}
         >
           {stylusOnly ? <ShieldCheck size={16} className="text-emerald-700" /> : <Touchpad size={16} />}
-          <span>{stylusOnly ? "Stylus Locked (Palm Protected)" : "Touch & Stylus Allowed"}</span>
+          <span>{stylusOnly ? "✍️ Stylus Locked (Palm Protected)" : "👆 Stylus & Touch Active"}</span>
         </button>
 
         <span className="mx-1 h-6 w-px bg-p-border" />
@@ -539,25 +561,25 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
               setColor(c);
               setTool("pen");
             }}
-            className={`grid size-11 place-items-center rounded-xl border ${color === c ? "border-p-primary" : "border-p-border"} bg-white`}
+            className={`grid size-11 place-items-center rounded-xl border ${color === c ? "border-p-primary ring-2 ring-p-primary/20" : "border-p-border"} bg-white`}
           >
             <span className="size-5 rounded-full" style={{ background: c }} />
           </button>
         ))}
         <label className="flex items-center gap-2 px-1 text-xs text-p-muted">
           Size
-          <input type="range" min={1} max={8} value={size} onChange={(e) => setSize(+e.target.value)} className="w-20" />
+          <input type="range" min={1} max={8} value={size} onChange={(e) => setSize(+e.target.value)} className="w-20 accent-p-primary" />
         </label>
         <span className="mx-1 h-6 w-px bg-p-border" />
         <button className={tb(false)} aria-label="Undo" disabled={!n.u} onClick={undo}><Undo2 size={18} /></button>
         <button className={tb(false)} aria-label="Redo" disabled={!n.r} onClick={redoFn}><Redo2 size={18} /></button>
         <button className={tb(false)} aria-label="Clear page" disabled={!n.u} onClick={clear}><Trash2 size={18} /></button>
-        <label className="flex min-h-11 items-center gap-2 px-2 text-xs">
-          <input type="checkbox" checked={letterhead} onChange={(e) => setLetterhead(e.target.checked)} />
+        <label className="flex min-h-11 cursor-pointer items-center gap-2 px-2 text-xs">
+          <input type="checkbox" checked={letterhead} onChange={(e) => setLetterhead(e.target.checked)} className="rounded accent-p-primary" />
           Letterhead
         </label>
-        <label className="flex min-h-11 items-center gap-2 px-2 text-xs">
-          <input type="checkbox" checked={ruled} onChange={(e) => setRuled(e.target.checked)} />
+        <label className="flex min-h-11 cursor-pointer items-center gap-2 px-2 text-xs">
+          <input type="checkbox" checked={ruled} onChange={(e) => setRuled(e.target.checked)} className="rounded accent-p-primary" />
           Lines
         </label>
         <div className="ml-auto flex gap-2">
@@ -578,13 +600,9 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
               touchAction: tool === "hand" ? "pan-x pan-y" : "none",
               cursor: tool === "hand" ? "grab" : "crosshair",
             }}
-            aria-label="A4 digital prescription pad"
           />
         </div>
       </div>
-      <p className="mx-auto mt-3 max-w-[794px] text-xs text-p-muted">
-        ⚡ <strong>Fluid Ink Engine</strong>: Natural pressure dynamics, midpoint quadratic curve smoothing, and hardware coalesced sampling. When using an S-Pen or stylus, rest your palm freely — stylus input automatically takes priority. Use the Hand tool to scroll or zoom.
-      </p>
     </div>
   );
 }
