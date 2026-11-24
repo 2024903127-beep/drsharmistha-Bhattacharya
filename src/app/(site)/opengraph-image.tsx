@@ -151,7 +151,7 @@ export default async function Image() {
               flexWrap: "wrap",
             }}
           >
-            {["10+ Years Experience", "AIIMS Trained", "99% Satisfaction", "120+ Reviews"].map((pill) => (
+            {["10+ Years Experience", "AIIMS Trained", "Natural Results", "120+ Reviews"].map((pill) => (
               <div
                 key={pill}
                 style={{

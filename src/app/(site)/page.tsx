@@ -158,17 +158,14 @@ export default function Home() {
               <span className="gold-text">crafted with restraint.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base lg:text-lg leading-relaxed text-ivory/72">
-              Dr. Sharmistha Bhattacharyya is a plastic and aesthetic surgeon
-              in Faridabad, serving patients across Delhi NCR and Gurgaon.
-              Every plan is calibrated to your natural anatomy, with transparent
-              costs and results designed to age gracefully.
+              Dr. Sharmistha Bhattacharyya offers detailed 1:1 private consultations with tailor-made surgical plans — targeting natural results that preserve your ethnicity, designed not just for today but for how your anatomy evolves over the years ahead.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link href="/book-consultation" className="btn btn-gold">Book online consultation</Link>
               <Link href="/services" className="btn btn-line-light">Explore procedures</Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-5">
-              {["Hospital-grade safety", "One surgeon throughout", "Written clinical plan"].map((t) => (
+              {["Hospital-grade safety", "One surgeon throughout", "Ethnicity-preserving results"].map((t) => (
                 <span key={t} className="flex items-center gap-2 text-sm text-ivory/55">
                   <span className="size-1.5 rounded-full bg-gold flex-shrink-0" />{t}
                 </span>
@@ -201,10 +198,10 @@ export default function Home() {
         <div className="relative w-full px-4 pb-7 md:pb-10 md:wrap">
           <div className="grid grid-cols-2 gap-2 md:gap-3 lg:grid-cols-4">
             {[
-              { value: c.rating,       top: "on Google",   sub: `${c.reviews} verified reviews` },
-              { value: c.years,        top: "years",       sub: "surgical & clinical practice" },
-              { value: "MCh",          top: "AIIMS",       sub: "Plastic Surgery · New Delhi" },
-              { value: c.satisfaction, top: "satisfaction", sub: "patient outcomes" },
+              { value: c.rating,  top: "on Google",    sub: `${c.reviews} verified reviews` },
+              { value: c.years,   top: "years",         sub: "surgical & clinical practice" },
+              { value: "MCh",     top: "AIIMS",         sub: "Plastic Surgery · New Delhi" },
+              { value: "1:1",     top: "private",       sub: "dedicated consultation" },
             ].map(({ value, top, sub }) => (
               <div key={value + top} className="stat-glass rounded-sm px-3 py-4 md:px-5 md:py-5">
                 <div className="font-display text-2xl md:text-3xl text-gold leading-none">{value}</div>
@@ -360,7 +357,7 @@ export default function Home() {
                 {[
                   { label: "Qualification", value: "MCh, AIIMS" },
                   { label: "Experience",    value: `${c.years} yrs surgical` },
-                  { label: "Satisfaction",  value: c.satisfaction },
+                  { label: "Approach",      value: "1:1 Private" },
                   { label: "Reviews",       value: `${c.reviews} on Google` },
                 ].map(({ label, value }) => (
                   <div key={label} className="rounded-sm bg-sage/60 px-3 py-3 md:px-4 md:py-4 border border-forest/8">

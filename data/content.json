@@ -1,4 +1,4 @@
-{
+﻿{
  "services": [
   {
    "name": "Rhinoplasty",
@@ -47,7 +47,7 @@
     }
    ],
    "slug": "rhinoplasty",
-   "fee": "Rs. 45,000 to Rs. 4,00,000, depending on technique and extent",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "1 Night Hospital Stay",
    "anesthesia": "General Anesthesia",
    "short": "Reshape the nose for balance with your face, and improve breathing where needed.",
@@ -108,8 +108,8 @@
     }
    ],
    "slug": "facelift",
-   "fee": "Quote upon Anatomic Review",
-   "stay": "1–2 Nights Hospital Stay",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "1â€“2 Nights Hospital Stay",
    "anesthesia": "General Anesthesia",
    "short": "Lift and re-drape the lower face and neck for a rested, natural look.",
    "flagship": true
@@ -125,7 +125,7 @@
     }
    ],
    "slug": "blepharoplasty",
-   "fee": "Quote upon Clinical Assessment",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care / Outpatient",
    "anesthesia": "Local with IV Sedation",
    "short": "Refresh tired upper and lower eyelids and reduce under-eye bags.",
@@ -174,7 +174,7 @@
     }
    ],
    "slug": "chin-lift",
-   "fee": "Quote upon Profile Assessment",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care",
    "anesthesia": "Local / Sedation",
    "short": "Strengthen the chin and jawline profile with implant or contouring techniques.",
@@ -211,7 +211,7 @@
     }
    ],
    "slug": "lip-surgery",
-   "fee": "Quote upon Clinical Evaluation",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care",
    "anesthesia": "Local Anesthesia",
    "short": "Refine lip proportion and the upper-lip line, including the concealed lip lift.",
@@ -260,7 +260,7 @@
     }
    ],
    "slug": "breast-implant",
-   "fee": "Cost of Implants + OT Schedule",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care / 1 Night",
    "anesthesia": "General Anesthesia",
    "short": "Increase breast size and improve shape with carefully chosen implants.",
@@ -272,7 +272,7 @@
    "route": "breast-lift",
    "sections": [
     {
-     "heading": "Am I a good candidate? I can’t decide.",
+     "heading": "Am I a good candidate? I canâ€™t decide.",
      "body": "A chest lift is a procedure which is most commonly performed in general anesthesia. There are many different techniques available. Your surgeon will choose a method that will suit your chest size and shape, areola position, the degree of chest sagging, extra skin present and the quality of skin present."
     },
     {
@@ -293,7 +293,7 @@
     }
    ],
    "slug": "breast-lift",
-   "fee": "Quote upon Ptosis Grade",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care / 1 Night",
    "anesthesia": "General Anesthesia",
    "short": "Raise and reshape sagging breasts, repositioning the nipple and areola.",
@@ -350,8 +350,8 @@
     }
    ],
    "slug": "breast-reduction",
-   "fee": "Quote upon Resection Weight",
-   "stay": "1–2 Nights Hospital Stay",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "1â€“2 Nights Hospital Stay",
    "anesthesia": "General Anesthesia",
    "short": "Reduce heavy breasts to ease back and shoulder strain and improve shape.",
    "flagship": true
@@ -407,7 +407,7 @@
     }
    ],
    "slug": "gynecomastia",
-   "fee": "Quote based on Gland Grade (I–IV)",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care / 1 Night",
    "anesthesia": "General Anesthesia",
    "short": "Flatten and contour an enlarged male chest with liposuction and gland removal.",
@@ -444,7 +444,7 @@
     }
    ],
    "slug": "liposuction",
-   "fee": "Quote based on Anatomical Zones",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care / 1 Night",
    "anesthesia": "General / Tumescent",
    "short": "Sculpt stubborn localised fat where the skin still has good elasticity.",
@@ -457,11 +457,11 @@
    "sections": [
     {
      "heading": "What are the procedures considered under Mommy makeover?",
-     "body": "This is a brief description of the Mommy make-over. A detailed discussion with your Plastic Surgeon will be needed to suggest what procedures are most suited to tailor to individual needs.\n\n- Tummy tuck or abdominoplasty: The most commonly sought surgery in a mommy makeover. The loose skin of the tummy is removed. It also gives optimum results with stretch marks treatment. Liposuction is also a part of the procedure.\n- Liposuction – Excess fat deposited around the tummy and trunk area, hips and thighs are removed by this procedure to provide better contours of the body.\n- Chest lift or mastopexy – Sagging chests are lifted by rearranging the areola position and removing excess skin and adjusting the chest tissue.\n- Chest reduction – Large size of the chests is a common problem among women today and chest reduction is an ideal solution for them and one of the most requested procedure to undergo.\n- Chest implants – It is one of the popular chest surgeries for increasing the size of the chest by using silicone implants.\n- Facial corrections – These range from simple acne treatments to facial sagging and aging which can be tackled with anti wrinkle injection, fillers or fat grafting around the face to give a fresh and youthful look to the face.\n- Vaginoplasty: Some women also seek a tightening of the vagina post-delivery which has been made loose by childbirth."
+     "body": "This is a brief description of the Mommy make-over. A detailed discussion with your Plastic Surgeon will be needed to suggest what procedures are most suited to tailor to individual needs.\n\n- Tummy tuck or abdominoplasty: The most commonly sought surgery in a mommy makeover. The loose skin of the tummy is removed. It also gives optimum results with stretch marks treatment. Liposuction is also a part of the procedure.\n- Liposuction â€“ Excess fat deposited around the tummy and trunk area, hips and thighs are removed by this procedure to provide better contours of the body.\n- Chest lift or mastopexy â€“ Sagging chests are lifted by rearranging the areola position and removing excess skin and adjusting the chest tissue.\n- Chest reduction â€“ Large size of the chests is a common problem among women today and chest reduction is an ideal solution for them and one of the most requested procedure to undergo.\n- Chest implants â€“ It is one of the popular chest surgeries for increasing the size of the chest by using silicone implants.\n- Facial corrections â€“ These range from simple acne treatments to facial sagging and aging which can be tackled with anti wrinkle injection, fillers or fat grafting around the face to give a fresh and youthful look to the face.\n- Vaginoplasty: Some women also seek a tightening of the vagina post-delivery which has been made loose by childbirth."
     }
    ],
    "slug": "mommy-makeover",
-   "fee": "Itemized Package per Case",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "2 Nights Hospital Stay",
    "anesthesia": "General Anesthesia",
    "short": "Combine tummy, breast and body procedures to restore shape after pregnancy.",
@@ -514,12 +514,12 @@
     },
     {
      "heading": "Selection of the surgeon:",
-     "body": "Cost should not be the only criterion when one selects a surgeon. This is most likely a once in a lifetime procedure that one goes through, so adequate research should go down while selecting your surgeon.\n\nOne should look at the surgeon's –\n\nTummy tuck surgery is quite a popular surgery and the reason for it being popular is the advantages it offers as a procedure, which are:\n\n- Education, training, and certification\n- Experience performing tummy-tuck surgery\n- Your comfort level with him or her\n- A flatter tummy\n- Improved body image\n- One looks better in clothes or swimwear\n- Highly improved self-confidence"
+     "body": "Cost should not be the only criterion when one selects a surgeon. This is most likely a once in a lifetime procedure that one goes through, so adequate research should go down while selecting your surgeon.\n\nOne should look at the surgeon's â€“\n\nTummy tuck surgery is quite a popular surgery and the reason for it being popular is the advantages it offers as a procedure, which are:\n\n- Education, training, and certification\n- Experience performing tummy-tuck surgery\n- Your comfort level with him or her\n- A flatter tummy\n- Improved body image\n- One looks better in clothes or swimwear\n- Highly improved self-confidence"
     }
    ],
    "slug": "tummy-tuck",
-   "fee": "Quote based on Abdominal Laxity",
-   "stay": "1–2 Nights Hospital Stay",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "1â€“2 Nights Hospital Stay",
    "anesthesia": "General Anesthesia",
    "short": "Remove loose abdominal skin and tighten separated muscles for a flatter tummy.",
    "flagship": true
@@ -547,7 +547,7 @@
     },
     {
      "heading": "What is the difference between the two methods?",
-     "body": "FUE or follicular unit extraction method is where the hair is taken from the donor area in the form of small grafts which are directly extracted by the use of a pen-like motor. The holes that occur after the extraction collapse in a few days time and get covered by the growing hair and become almost invisible to the naked eye. Thus this method is marketed by different hair transplant clinics as the scarless technique.\n\nFUT is the follicular unit transplantation technique where a strip of the donor tissue is taken and the follicles from the strip are separated under the microscope for transplantation. The donor area is neatly stitched by the method of ‘Trichophytic closure’ and in a well-done case, the hair actually grows through the scar. Done in trained hands the results of FUT are better than the FUE technique because the scars of FUE will still be visible as dotted areas if the graft requirement is more.\n\nTo get the best results and a natural-looking hairline, book a consultation with the Best Doctor for Hair transplant, Dr Sharmistha Bhattacharyya."
+     "body": "FUE or follicular unit extraction method is where the hair is taken from the donor area in the form of small grafts which are directly extracted by the use of a pen-like motor. The holes that occur after the extraction collapse in a few days time and get covered by the growing hair and become almost invisible to the naked eye. Thus this method is marketed by different hair transplant clinics as the scarless technique.\n\nFUT is the follicular unit transplantation technique where a strip of the donor tissue is taken and the follicles from the strip are separated under the microscope for transplantation. The donor area is neatly stitched by the method of â€˜Trichophytic closureâ€™ and in a well-done case, the hair actually grows through the scar. Done in trained hands the results of FUT are better than the FUE technique because the scars of FUE will still be visible as dotted areas if the graft requirement is more.\n\nTo get the best results and a natural-looking hairline, book a consultation with the Best Doctor for Hair transplant, Dr Sharmistha Bhattacharyya."
     },
     {
      "heading": "My area of baldness is quite a lot, which method will be suitable?",
@@ -567,7 +567,7 @@
     },
     {
      "heading": "How much time is required to harvest the grafts?",
-     "body": "In FUT the harvesting of the strip and the stitching of the area will require just about 45 minutes after which you will usually be sent to rest for a while till the team will harvest the hair grafts from the strips.\n\nIn FUE however, because the grafts are harvested directly from the scalp you should know that the time required will depend upon the number of grafts to be harvested and can take anywhere between 1 hour to 4 hours.\n\nSlits will be made for placement of the grafts. Then grafts that have been harvested will then be placed in their slits. A break is given in between the procedure so that one doesn’t feel tired during the procedure. One can expect that the procedure will last about 6-8 hours but this too will depend upon the number of grafts that are needed to be done."
+     "body": "In FUT the harvesting of the strip and the stitching of the area will require just about 45 minutes after which you will usually be sent to rest for a while till the team will harvest the hair grafts from the strips.\n\nIn FUE however, because the grafts are harvested directly from the scalp you should know that the time required will depend upon the number of grafts to be harvested and can take anywhere between 1 hour to 4 hours.\n\nSlits will be made for placement of the grafts. Then grafts that have been harvested will then be placed in their slits. A break is given in between the procedure so that one doesnâ€™t feel tired during the procedure. One can expect that the procedure will last about 6-8 hours but this too will depend upon the number of grafts that are needed to be done."
     },
     {
      "heading": "Will I need to stay in the hospital overnight?",
@@ -594,12 +594,12 @@
      "body": "One can have a repeat procedure anytime after six months of the initial procedure."
     },
     {
-     "heading": "I don’t have enough hair for transplant on my scalp, what can be done?",
+     "heading": "I donâ€™t have enough hair for transplant on my scalp, what can be done?",
      "body": "Body hair transplant can be done for people who do not have enough scalp hair, however, one should have realistic expectations from the procedure when considering this."
     }
    ],
    "slug": "hair-transplant",
-   "fee": "Per Graft Matrix (Discussed at Consult)",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "Day Care (Single/Double Day)",
    "anesthesia": "Local Anesthesia",
    "short": "Restore thinning areas and hairlines with your own grafts under local anaesthesia.",
@@ -620,7 +620,7 @@
     },
     {
      "heading": "A Versatile Treatment",
-     "body": "Mesotherapy is a very versatile treatment as serum cocktail ingredients can be customized as per the patient’s need. It is multifaceted as this has been used for:"
+     "body": "Mesotherapy is a very versatile treatment as serum cocktail ingredients can be customized as per the patientâ€™s need. It is multifaceted as this has been used for:"
     },
     {
      "heading": "Hair Rejuvenation",
@@ -644,7 +644,7 @@
     }
    ],
    "slug": "mesotherapy",
-   "fee": "Per Session Course (4–6 Sessions)",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "30 min Clinic Visit",
    "anesthesia": "Contact Cooling",
    "short": "Skin-nourishing micro-injections with no downtime, for rejuvenation and hair health.",
@@ -661,14 +661,14 @@
     },
     {
      "heading": "Non-surgical Hair Growth",
-     "body": "It is a simple, effective, non-surgical alternative to a hair transplant. In this treatment, we have our routine standard hair growth factors that are extracted from the patient’s blood by strict protocols of sterility and double centrifugation methods to attain the highest quality."
+     "body": "It is a simple, effective, non-surgical alternative to a hair transplant. In this treatment, we have our routine standard hair growth factors that are extracted from the patientâ€™s blood by strict protocols of sterility and double centrifugation methods to attain the highest quality."
     },
     {
      "heading": "Hair Booster Therapy",
-     "body": "In our signature ‘Hair Booster Therapy’ the growth factors are enriched further by the addition of meso solutions that have proven efficacy in promoting hair growth. Multiple sessions are needed for optimum benefits. It also comes with packs of special hair growth vitamins for six months (available exclusively with the clinic) and hair serums that should be had as per the prescription of the doctor.\n\nThere are no hormones involved in the entire therapy and the results we have been witnessing are very encouraging. Years of treatment with various methods of monotherapy, we can easily say this method of hair growth without surgery or hormonal treatments is working for the majority of our patients."
+     "body": "In our signature â€˜Hair Booster Therapyâ€™ the growth factors are enriched further by the addition of meso solutions that have proven efficacy in promoting hair growth. Multiple sessions are needed for optimum benefits. It also comes with packs of special hair growth vitamins for six months (available exclusively with the clinic) and hair serums that should be had as per the prescription of the doctor.\n\nThere are no hormones involved in the entire therapy and the results we have been witnessing are very encouraging. Years of treatment with various methods of monotherapy, we can easily say this method of hair growth without surgery or hormonal treatments is working for the majority of our patients."
     },
     {
-     "heading": "What should you expect in your ‘Hair Booster Therapy’ Sessions?",
+     "heading": "What should you expect in your â€˜Hair Booster Therapyâ€™ Sessions?",
      "body": "This is a treatment of four sessions ideally spaced 3-4 weeks apart. The full course of treatment will last roughly four months. Blood will be drawn from one of your veins and growth factors are prepared from this blood by double centrifugation method. A numbing cream will be applied to your scalp till the growth factors are prepared. The time estimated is about 40 minutes. The scalp is cleaned and wiped with an antibiotic solution to maintain sterility during the procedure. Small numbing injections may need to be applied in some patients, the majority will do well with the numbing cream. The growth factors are then mixed with external growth factors to be injected into the scalp. The time duration of the treatment is around 20 minutes. One can expect a slight heaviness in the head for a couple of hours after the treatment. Ice packs are recommended for comfort. One should start expecting hair growth in the third month of the therapy. Smoking should be withheld for optimum benefits. Hair wash can be done the next morning."
     },
     {
@@ -689,15 +689,15 @@
     },
     {
      "heading": "Are there any risks?",
-     "body": "Growth factors are extracted from one’s own blood so there is no risk of disease transmission. The mesotherapy products used are all-natural and approved by the USFDA. There are no major risks involved in the procedure."
+     "body": "Growth factors are extracted from oneâ€™s own blood so there is no risk of disease transmission. The mesotherapy products used are all-natural and approved by the USFDA. There are no major risks involved in the procedure."
     },
     {
      "heading": "Possible side effects",
-     "body": "Minimal swelling, bruising, and redness can be expected after the procedure but the majority of patients can continue their routine activity after the ‘Hair Booster Therapy’ session. Alcohol should be avoided after the procedure for 24 hours."
+     "body": "Minimal swelling, bruising, and redness can be expected after the procedure but the majority of patients can continue their routine activity after the â€˜Hair Booster Therapyâ€™ session. Alcohol should be avoided after the procedure for 24 hours."
     }
    ],
    "slug": "hair-booster",
-   "fee": "Per Session / Multi-Session Package",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "45-60 min Clinic Visit",
    "anesthesia": "Topical Numbing",
    "short": "Growth factor therapy that supports healthier, denser hair and transplanted grafts.",
@@ -734,11 +734,11 @@
     },
     {
      "heading": "Suitable candidates for laser hair reduction",
-     "body": "Mostly, everyone who is interested in laser hair reduction is a suitable candidate for the treatment. The qualifying criteria depend upon the hair and skin type/colour, overall health status, and trends for body hair and grooming. Those who have active skin conditions, allergies, infections, permanent tattoos, or autoimmune diseases are not suitable candidates for laser hair reduction. Pregnant and nursing mothers are not advised to undergo this procedure.\n\nLaser hair reduction in Delhi NCR at Dr Sharmistha Bhattacharyya's clinic is successful for people with any skin tone, hair texture, and density. That’s because it uses sophisticated lasers whose settings can be adjusted as per the combinations of natural skin and hair colour."
+     "body": "Mostly, everyone who is interested in laser hair reduction is a suitable candidate for the treatment. The qualifying criteria depend upon the hair and skin type/colour, overall health status, and trends for body hair and grooming. Those who have active skin conditions, allergies, infections, permanent tattoos, or autoimmune diseases are not suitable candidates for laser hair reduction. Pregnant and nursing mothers are not advised to undergo this procedure.\n\nLaser hair reduction in Delhi NCR at Dr Sharmistha Bhattacharyya's clinic is successful for people with any skin tone, hair texture, and density. Thatâ€™s because it uses sophisticated lasers whose settings can be adjusted as per the combinations of natural skin and hair colour."
     },
     {
      "heading": "Number of sessions",
-     "body": "Getting rid of undesirable hair on the face or body through lasers isn’t a quick process. The laser hair reduction treatment requires multiple sessions to finally stop the unwelcomed hair growth in targeted sites. These sessions are scheduled a few weeks apart.\n\nAs lasers work only on actively growing hair, multiple laser sessions are needed so that maximum unwanted hair gets in the growth phase. A definite reduction in hair growth is possible in 6-8 laser sessions. Depending upon the hair growth of the treated patients, there may be follow-up laser sessions required every few months. The exact number of laser sessions needed depends upon hormonal influences, the colour and coarseness of the hair, and the size and location of the targeted area."
+     "body": "Getting rid of undesirable hair on the face or body through lasers isnâ€™t a quick process. The laser hair reduction treatment requires multiple sessions to finally stop the unwelcomed hair growth in targeted sites. These sessions are scheduled a few weeks apart.\n\nAs lasers work only on actively growing hair, multiple laser sessions are needed so that maximum unwanted hair gets in the growth phase. A definite reduction in hair growth is possible in 6-8 laser sessions. Depending upon the hair growth of the treated patients, there may be follow-up laser sessions required every few months. The exact number of laser sessions needed depends upon hormonal influences, the colour and coarseness of the hair, and the size and location of the targeted area."
     },
     {
      "heading": "Laser Hair Removal Results",
@@ -746,12 +746,12 @@
     },
     {
      "heading": "Aftercare after laser hair reduction",
-     "body": "Here are some of the laser expert-prescribed aftercare tips that the candidates must follow after undergoing every laser hair reduction session:\n\nIf one is considering laser hair reduction, Dr Sharmistha Bhattacharyya is the best clinic to go ahead for. Visit now to get the benefits of smooth hair free skin with the best laser hair removal clinic in Delhi NCR.\n\n- Avoid taking hot showers or baths or going for saunas and steam rooms. Excessive heating of the treated area can be irritating.\n- Do not get indulged in strenuous physical activities for the initial 48 hours as these can raise the body temperature and heat the treated area more.\n- Refrain from the use of harsh chemicals or any skin irritants on the treated area right after the treatment as the skin is still vulnerable to getting irritated. Wait for at least 24 hours to apply makeup post each laser session.\n- Do not expose the treated area directly to the sun’s harmful UVA and UVB rays for at least a week. If it’s important to step out in the daytime, then cover the treated areas with sun-protective clothing and generously apply sunscreen of at least SPF 30 and above."
+     "body": "Here are some of the laser expert-prescribed aftercare tips that the candidates must follow after undergoing every laser hair reduction session:\n\nIf one is considering laser hair reduction, Dr Sharmistha Bhattacharyya is the best clinic to go ahead for. Visit now to get the benefits of smooth hair free skin with the best laser hair removal clinic in Delhi NCR.\n\n- Avoid taking hot showers or baths or going for saunas and steam rooms. Excessive heating of the treated area can be irritating.\n- Do not get indulged in strenuous physical activities for the initial 48 hours as these can raise the body temperature and heat the treated area more.\n- Refrain from the use of harsh chemicals or any skin irritants on the treated area right after the treatment as the skin is still vulnerable to getting irritated. Wait for at least 24 hours to apply makeup post each laser session.\n- Do not expose the treated area directly to the sunâ€™s harmful UVA and UVB rays for at least a week. If itâ€™s important to step out in the daytime, then cover the treated areas with sun-protective clothing and generously apply sunscreen of at least SPF 30 and above."
     }
    ],
    "slug": "laser-hair-reduction",
-   "fee": "Starts from Rs. 65,000",
-   "stay": "30–60 min per session",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "30â€“60 min per session",
    "anesthesia": "Contact Chilling",
    "short": "Reduce unwanted facial and body hair with a planned course of laser sessions.",
    "flagship": false
@@ -767,11 +767,11 @@
     },
     {
      "heading": "Benefits of laser toning",
-     "body": "- An effective, non-surgical technique to treat pigmentation from top to deeper skin layers\n- Stimulates collagen regeneration - Collagen is a skin structural protein that keeps intact the skin’s youthful appearance i.e. glowing, supple, and plump skin. It stimulates elastin production to maintain the skin’s elasticity.\n- Safe, painless, and effective therapy for all skin types\n- Use of low-fluence laser - Such laser doesn’t cause destruction or death of melanocytes (pigment-producing cells) so there is a significantly reduced chance of recurrence of pigmentation post-treatment.\n- Restore the natural healing ability of the skin\n- Promotes constriction of blood vessels and their functioning\n- Instant and easy technique with no extensive downtime; candidates can return home immediately after the treatment\n- Minimal and rare after-effects - Usually redness and skin irritation are there post-treatment that resolves in a few minutes or maximum in a couple of hours.\n- Most effective and safe treatment for melasma patients - The technique uses a reliable top-hat beam profile and ultrashort pulse of laser that delivers light to dermal and epidermal layers.\n- Enduring results that are noticed for months and sometimes even years."
+     "body": "- An effective, non-surgical technique to treat pigmentation from top to deeper skin layers\n- Stimulates collagen regeneration - Collagen is a skin structural protein that keeps intact the skinâ€™s youthful appearance i.e. glowing, supple, and plump skin. It stimulates elastin production to maintain the skinâ€™s elasticity.\n- Safe, painless, and effective therapy for all skin types\n- Use of low-fluence laser - Such laser doesnâ€™t cause destruction or death of melanocytes (pigment-producing cells) so there is a significantly reduced chance of recurrence of pigmentation post-treatment.\n- Restore the natural healing ability of the skin\n- Promotes constriction of blood vessels and their functioning\n- Instant and easy technique with no extensive downtime; candidates can return home immediately after the treatment\n- Minimal and rare after-effects - Usually redness and skin irritation are there post-treatment that resolves in a few minutes or maximum in a couple of hours.\n- Most effective and safe treatment for melasma patients - The technique uses a reliable top-hat beam profile and ultrashort pulse of laser that delivers light to dermal and epidermal layers.\n- Enduring results that are noticed for months and sometimes even years."
     },
     {
      "heading": "How does laser toning work?",
-     "body": "Laser toning treatment in Delhi NCR involves the use of non-ablative laser Q-switched Nd: YAG that causes controlled injury in the skin dermis- middle skin layer without damaging or removing the superficial skin layers. The laser device targets concentrated light beams of specific wavelengths onto the skin to be treated, for a few microseconds. This light energy heats the skin dermis and encourages a natural response of the body to skin injury which causes new collagen synthesis.\n\nFurthermore, the lasers work via the principle of selective photothermolysis to break down the extra melanin pigment produced by epidermal melanocytes. The pigment particles are later cleared from the skin and body with the help of the body’s immune system.\n\nQ-switched Laser toning in Delhi NCR is performed by either of two types of laser energy frequencies:\n\n- 534 nm - to treat hyperpigmentation and lighten or even out the skin tone\n- 1064nm - to encourage collagen production deep within the skin and restore the skin’s youthfulness."
+     "body": "Laser toning treatment in Delhi NCR involves the use of non-ablative laser Q-switched Nd: YAG that causes controlled injury in the skin dermis- middle skin layer without damaging or removing the superficial skin layers. The laser device targets concentrated light beams of specific wavelengths onto the skin to be treated, for a few microseconds. This light energy heats the skin dermis and encourages a natural response of the body to skin injury which causes new collagen synthesis.\n\nFurthermore, the lasers work via the principle of selective photothermolysis to break down the extra melanin pigment produced by epidermal melanocytes. The pigment particles are later cleared from the skin and body with the help of the bodyâ€™s immune system.\n\nQ-switched Laser toning in Delhi NCR is performed by either of two types of laser energy frequencies:\n\n- 534 nm - to treat hyperpigmentation and lighten or even out the skin tone\n- 1064nm - to encourage collagen production deep within the skin and restore the skinâ€™s youthfulness."
     },
     {
      "heading": "Precautions and advice before the treatment",
@@ -791,8 +791,8 @@
     }
    ],
    "slug": "laser-toning",
-   "fee": "Per Session / Skin Plan",
-   "stay": "20–30 min Clinic Visit",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "20â€“30 min Clinic Visit",
    "anesthesia": "None Required",
    "short": "Even out skin tone and dullness with Q-switched Nd:YAG laser toning.",
    "flagship": false
@@ -820,11 +820,11 @@
     },
     {
      "heading": "Treatment Facts",
-     "body": "- Duration: 25–40 minutes per session.\n- Anesthesia: Generally well-tolerated with contact cooling; mild topical numbing cream may be applied for sensitive skin.\n- Protocol: A series of 3 to 6 sessions spaced 3 to 4 weeks apart is typically recommended depending on skin grade.\n- Setting: Outpatient clinic procedure; immediate return to daily activities."
+     "body": "- Duration: 25â€“40 minutes per session.\n- Anesthesia: Generally well-tolerated with contact cooling; mild topical numbing cream may be applied for sensitive skin.\n- Protocol: A series of 3 to 6 sessions spaced 3 to 4 weeks apart is typically recommended depending on skin grade.\n- Setting: Outpatient clinic procedure; immediate return to daily activities."
     },
     {
      "heading": "Recovery & Aftercare",
-     "body": "Transient pinkness or mild swelling is normal and generally subsides within 12 to 24 hours. You may resume non-strenuous routines immediately. Strict daily broad-spectrum sunscreen (SPF 50+) is essential following each session, and active chemical exfoliants (retinoids, AHA/BHA) should be paused for 3–5 days as directed by the clinic."
+     "body": "Transient pinkness or mild swelling is normal and generally subsides within 12 to 24 hours. You may resume non-strenuous routines immediately. Strict daily broad-spectrum sunscreen (SPF 50+) is essential following each session, and active chemical exfoliants (retinoids, AHA/BHA) should be paused for 3â€“5 days as directed by the clinic."
     },
     {
      "heading": "Risks & Considerations",
@@ -832,12 +832,12 @@
     },
     {
      "heading": "Begin with a clinical assessment, not a quotation.",
-     "body": "Every plan starts with an unhurried assessment — your skin type, your medical history, and an honest view of what laser dermatology can achieve."
+     "body": "Every plan starts with an unhurried assessment â€” your skin type, your medical history, and an honest view of what laser dermatology can achieve."
     }
    ],
    "slug": "acne-laser",
-   "fee": "Per Session / Multi-Session Plan",
-   "stay": "30–45 min Clinic Visit",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "30â€“45 min Clinic Visit",
    "anesthesia": "Topical Numbing",
    "short": "Treat active acne and soften scars with laser-based skin remodelling.",
    "flagship": false
@@ -865,7 +865,7 @@
     },
     {
      "heading": "Clinical Details",
-     "body": "- Session Time: 30–45 minutes depending on surface area treated.\n- Discomfort Level: Minimal; often described like the light snap of a small rubber band.\n- Recommended Course: Typically 4 to 6 sessions at intervals of 3 to 4 weeks.\n- Recovery Downtime: Zero to minimal; slight redness subsides within a few hours."
+     "body": "- Session Time: 30â€“45 minutes depending on surface area treated.\n- Discomfort Level: Minimal; often described like the light snap of a small rubber band.\n- Recommended Course: Typically 4 to 6 sessions at intervals of 3 to 4 weeks.\n- Recovery Downtime: Zero to minimal; slight redness subsides within a few hours."
     },
     {
      "heading": "Aftercare & Sun Protection",
@@ -877,7 +877,7 @@
     },
     {
      "heading": "Begin with a clinical assessment, not a quotation.",
-     "body": "Every plan starts with an unhurried assessment — your skin type, your medical history, and an honest view of what laser dermatology can achieve."
+     "body": "Every plan starts with an unhurried assessment â€” your skin type, your medical history, and an honest view of what laser dermatology can achieve."
     }
    ],
    "slug": "laser-for-pigmentation",
@@ -903,7 +903,7 @@
     },
     {
      "heading": "How Do Anti-Wrinkle Injections Work?",
-     "body": "Fine lines and wrinkles are mostly formed perpendicular to the contracting muscles located just beneath them. They appear because of the lost skin’s ability to regain its structure with ageing. With advancing age, the skin loses its elasticity, suppleness, firmness, and hydration—all because of a decline in the levels of collagen, elastin, and hyaluronic acid in the skin. Young people’s skin is mostly wrinkle-free because even after repeated facial expressions, the stretched skin comes back to its original state.\n\nThe purpose of anti-wrinkle injections is to smoothen the fine lines and wrinkles caused by muscle hyperactivity. These injections contain a bacterium-derived anti-aging substance that works by blocking the nerve impulses to the muscles for contraction. They paralyse the wrinkle-causing muscles temporarily to provide a smoother look."
+     "body": "Fine lines and wrinkles are mostly formed perpendicular to the contracting muscles located just beneath them. They appear because of the lost skinâ€™s ability to regain its structure with ageing. With advancing age, the skin loses its elasticity, suppleness, firmness, and hydrationâ€”all because of a decline in the levels of collagen, elastin, and hyaluronic acid in the skin. Young peopleâ€™s skin is mostly wrinkle-free because even after repeated facial expressions, the stretched skin comes back to its original state.\n\nThe purpose of anti-wrinkle injections is to smoothen the fine lines and wrinkles caused by muscle hyperactivity. These injections contain a bacterium-derived anti-aging substance that works by blocking the nerve impulses to the muscles for contraction. They paralyse the wrinkle-causing muscles temporarily to provide a smoother look."
     },
     {
      "heading": "Pre-Treatment Instructions",
@@ -911,7 +911,7 @@
     },
     {
      "heading": "What to Expect From the Treatment",
-     "body": "Before starting the treatment, the candidate’s skin to be treated may be numbed using an anaesthetic cream or a cold pack. This is done for those who have sensitive skin and can’t tolerate the pricking of the skin.\n\nThe treatment begins with cleaning the skin to be treated and then numbing it (if required). Once done, the doctor injects the purified anti-aging substance directly into the muscles lying under the wrinkled skin. The anti-aging substance is administered with the help of a thin or fine gauge needle. The amount injected depends upon the severity of the wrinkles and the unique facial structure, diet, age, and expectations of the candidate.\n\nThe results of the treatment can be visualised in about 2-3 days following the procedure. The maximum effect of the anti-wrinkle injections usually is seen within 2-4 weeks. The desired results last for about 4-5 months or even longer. When the effects wear off, the injections are required again. Side effects of the treatment are rare when performed by a skilled and experienced medical professional. Even if they occur, they are mild and temporary. Some potential side effects include bruising, tenderness, inflammation, infection, swelling, pain, muscle weakness, keloid scarring, dry mouth, dermatoses in the treated area, and anxiety.\n\nTo learn more about the anti-wrinkle injection cost in Delhi NCR in detail, schedule a visit with Dr Sharmistha Bhattacharyya today."
+     "body": "Before starting the treatment, the candidateâ€™s skin to be treated may be numbed using an anaesthetic cream or a cold pack. This is done for those who have sensitive skin and canâ€™t tolerate the pricking of the skin.\n\nThe treatment begins with cleaning the skin to be treated and then numbing it (if required). Once done, the doctor injects the purified anti-aging substance directly into the muscles lying under the wrinkled skin. The anti-aging substance is administered with the help of a thin or fine gauge needle. The amount injected depends upon the severity of the wrinkles and the unique facial structure, diet, age, and expectations of the candidate.\n\nThe results of the treatment can be visualised in about 2-3 days following the procedure. The maximum effect of the anti-wrinkle injections usually is seen within 2-4 weeks. The desired results last for about 4-5 months or even longer. When the effects wear off, the injections are required again. Side effects of the treatment are rare when performed by a skilled and experienced medical professional. Even if they occur, they are mild and temporary. Some potential side effects include bruising, tenderness, inflammation, infection, swelling, pain, muscle weakness, keloid scarring, dry mouth, dermatoses in the treated area, and anxiety.\n\nTo learn more about the anti-wrinkle injection cost in Delhi NCR in detail, schedule a visit with Dr Sharmistha Bhattacharyya today."
     },
     {
      "heading": "Post-Treatment Care",
@@ -919,8 +919,8 @@
     }
    ],
    "slug": "anti-wrinkle-injection",
-   "fee": "Per Unit / Area (Forehead, Crow's, Frown)",
-   "stay": "15–30 min Clinic Visit",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "15â€“30 min Clinic Visit",
    "anesthesia": "Topical Ice / Numbing",
    "short": "Smooth forehead, frown and crow's feet lines with precise injections.",
    "flagship": false
@@ -940,15 +940,15 @@
     },
     {
      "heading": "Indications & Candidacy",
-     "body": "- Patients seeking improvement in superficial acne scars (boxcar or rolling scars).\n- Enlarged pores and irregular, rough skin texture.\n- Early fine lines around the periorbital and perioral areas.\n- Mild skin laxity and dullness resulting from environmental oxidation and aging.\n- Suitable across all Fitzpatrick skin types (I–VI) with minimal risk of thermal post-inflammatory hyperpigmentation."
+     "body": "- Patients seeking improvement in superficial acne scars (boxcar or rolling scars).\n- Enlarged pores and irregular, rough skin texture.\n- Early fine lines around the periorbital and perioral areas.\n- Mild skin laxity and dullness resulting from environmental oxidation and aging.\n- Suitable across all Fitzpatrick skin types (Iâ€“VI) with minimal risk of thermal post-inflammatory hyperpigmentation."
     },
     {
      "heading": "Procedure Steps",
-     "body": "A medical-grade topical anesthetic is applied 30–45 minutes beforehand to guarantee full comfort. The skin is disinfected with an antiseptic preparation. A sterile hyaluronic acid or growth-factor glide solution is applied, and the calibrated microneedling device is passed over target zones at physician-calibrated penetration depths (0.5mm to 2.0mm). A cooling biocellulose mask is placed immediately afterward to soothe the skin."
+     "body": "A medical-grade topical anesthetic is applied 30â€“45 minutes beforehand to guarantee full comfort. The skin is disinfected with an antiseptic preparation. A sterile hyaluronic acid or growth-factor glide solution is applied, and the calibrated microneedling device is passed over target zones at physician-calibrated penetration depths (0.5mm to 2.0mm). A cooling biocellulose mask is placed immediately afterward to soothe the skin."
     },
     {
      "heading": "Procedure Facts",
-     "body": "- Duration: 45–60 minutes (including topical numbing).\n- Anesthesia: Topical lidocaine-based anesthetic cream.\n- Protocol: A series of 3 to 5 sessions spaced 4 to 6 weeks apart delivers cumulative dermal remodeling.\n- Recovery: Mild erythema resembling mild sunburn lasting 24 to 48 hours."
+     "body": "- Duration: 45â€“60 minutes (including topical numbing).\n- Anesthesia: Topical lidocaine-based anesthetic cream.\n- Protocol: A series of 3 to 5 sessions spaced 4 to 6 weeks apart delivers cumulative dermal remodeling.\n- Recovery: Mild erythema resembling mild sunburn lasting 24 to 48 hours."
     },
     {
      "heading": "Post-Treatment Care",
@@ -960,12 +960,12 @@
     },
     {
      "heading": "Begin with a clinical assessment, not a quotation.",
-     "body": "Every plan starts with an unhurried assessment — your skin type, your medical history, and an honest view of what collagen induction therapy can achieve."
+     "body": "Every plan starts with an unhurried assessment â€” your skin type, your medical history, and an honest view of what collagen induction therapy can achieve."
     }
    ],
    "slug": "microneedling",
-   "fee": "Per Session / 3-Session Package",
-   "stay": "45–60 min Clinic Visit",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "45â€“60 min Clinic Visit",
    "anesthesia": "Topical Lidocaine",
    "short": "Stimulate collagen to refine skin texture, scars and fine lines.",
    "flagship": false
@@ -989,7 +989,7 @@
     },
     {
      "heading": "Correlation of Platelets, Growth Factors, and Collagen",
-     "body": "- Growth factors improve the blood flow to the tissues, regenerate tissue, and also increase collagen production. These growth factors activate the multipotent skin cells (epidermal cells) that are present in the skin, thus repairing and regenerating damaged skin and slowing down the aging process. (These cells perceive it as an injury and trigger the production of younger tissue as a healing response).\n- The platelets are composed of several growth factors such as: PDGF, VEGF, EGF, FGF, IGF, KGF, and TGF-β. They all promote cell growth, tissue growth, wound healing, collagen production, angiogenesis, repair of blood vessels, and tissue repair.\n- New collagen production helps to plump the skin and provides a younger-looking appearance by reducing the appearance of wrinkles and fine lines."
+     "body": "- Growth factors improve the blood flow to the tissues, regenerate tissue, and also increase collagen production. These growth factors activate the multipotent skin cells (epidermal cells) that are present in the skin, thus repairing and regenerating damaged skin and slowing down the aging process. (These cells perceive it as an injury and trigger the production of younger tissue as a healing response).\n- The platelets are composed of several growth factors such as: PDGF, VEGF, EGF, FGF, IGF, KGF, and TGF-Î². They all promote cell growth, tissue growth, wound healing, collagen production, angiogenesis, repair of blood vessels, and tissue repair.\n- New collagen production helps to plump the skin and provides a younger-looking appearance by reducing the appearance of wrinkles and fine lines."
     },
     {
      "heading": "Precautions and Guidelines Before Treatment",
@@ -1005,7 +1005,7 @@
     },
     {
      "heading": "Side Effects of a Vampire Facial",
-     "body": "There is no risk of allergy or infection as it is an entirely natural treatment, and the patient’s own blood is used during the procedure. Some minimal risks and temporary side effects associated with a vampire facelift include:\n\n- Redness\n- Bruising\n- Soreness\n- Slight swelling\n- Rough skin texture\n- Itching\n- Inflammation"
+     "body": "There is no risk of allergy or infection as it is an entirely natural treatment, and the patientâ€™s own blood is used during the procedure. Some minimal risks and temporary side effects associated with a vampire facelift include:\n\n- Redness\n- Bruising\n- Soreness\n- Slight swelling\n- Rough skin texture\n- Itching\n- Inflammation"
     },
     {
      "heading": "Post-Treatment Guidelines",
@@ -1013,11 +1013,11 @@
     },
     {
      "heading": "How much does a vampire facelift cost in Delhi NCR?",
-     "body": "The vampire facelift cost in Delhi NCR varies. The price depends on the patient’s specific concerns, the location, and Dr Sharmistha Bhattacharyya's tailored treatment plan."
+     "body": "The vampire facelift cost in Delhi NCR varies. The price depends on the patientâ€™s specific concerns, the location, and Dr Sharmistha Bhattacharyya's tailored treatment plan."
     },
     {
      "heading": "What does a vampire facial do?",
-     "body": "A vampire facial uses the patient’s blood to revitalize the skin and provide a youthful appearance. It enhances collagen formation, smooths wrinkles, and improves skin texture."
+     "body": "A vampire facial uses the patientâ€™s blood to revitalize the skin and provide a youthful appearance. It enhances collagen formation, smooths wrinkles, and improves skin texture."
     },
     {
      "heading": "Is a vampire facial painful?",
@@ -1037,7 +1037,7 @@
     },
     {
      "heading": "Which is better: HydraFacial or Vampire facial?",
-     "body": "Which procedure is better will depend on the receiver’s concerns and goals. A vampire facial encourages collagen formation, which is ideal for deep tissue healing and skin remodelling."
+     "body": "Which procedure is better will depend on the receiverâ€™s concerns and goals. A vampire facial encourages collagen formation, which is ideal for deep tissue healing and skin remodelling."
     },
     {
      "heading": "Is a vampire facial permanent?",
@@ -1049,8 +1049,8 @@
     }
    ],
    "slug": "vampire-facelift",
-   "fee": "Per Session / Annual Maintenance",
-   "stay": "60–75 min Clinic Visit",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "60â€“75 min Clinic Visit",
    "anesthesia": "Topical Lidocaine",
    "short": "PRP with microneedling to rejuvenate skin using your own plasma.",
    "flagship": false
@@ -1086,11 +1086,11 @@
     },
     {
      "heading": "Ideal Candidates for a Thread Lift",
-     "body": "The following are suitable candidates for a thread lift in Delhi NCR:\n\nA thread lift is not recommended for individuals having excessive sagging, very aged, damaged, or thick skin, or for smokers.\n\n- A person with good skin tone in their 30s–60s is considered an ideal candidate.\n- Someone who is experiencing sagging in their face and neck areas.\n- Older patients who are not able to undergo a facelift surgery because of medical reasons. A candidate suffering from cardiovascular disease, type II diabetes, or high blood pressure can safely undergo this treatment.\n- Those who have realistic expectations with the procedure."
+     "body": "The following are suitable candidates for a thread lift in Delhi NCR:\n\nA thread lift is not recommended for individuals having excessive sagging, very aged, damaged, or thick skin, or for smokers.\n\n- A person with good skin tone in their 30sâ€“60s is considered an ideal candidate.\n- Someone who is experiencing sagging in their face and neck areas.\n- Older patients who are not able to undergo a facelift surgery because of medical reasons. A candidate suffering from cardiovascular disease, type II diabetes, or high blood pressure can safely undergo this treatment.\n- Those who have realistic expectations with the procedure."
     },
     {
      "heading": "Procedure for a Thread Lift",
-     "body": "The treatment usually takes 1-2 hours. First of all, the target areas are identified, and meticulous pre-planning is involved. A thread lift with Dr Sharmistha Bhattacharyya is carried out as described in the following steps:\n\nDepending upon the patient’s physiological conditions and lifestyle, the result can last up to one or more years. To achieve better and long-lasting results, periodic treatments are recommended. The best outcome of each procedure depends on appropriate patient selection and determining the suitable technique. To get a lasting and effective thread lift in Delhi NCR, book a consultation with Dr Sharmistha Bhattacharyya.\n\n- Markings are made on the target area where the thread will be inserted. The skin is disinfected, and local anaesthesia is administered.\n- Then a small instrument (a cannula or a thin needle) is used to deliver the thread below the skin. The barbs on these threads will lock in place upon insertion to lift very specific areas.\n- The threads are cut at the incision point, and cog ends are submerged underneath the skin to avoid the risk of protrusion.\n- Cleaning of the treated area and application of ice to minimize the risk of bruising and edema."
+     "body": "The treatment usually takes 1-2 hours. First of all, the target areas are identified, and meticulous pre-planning is involved. A thread lift with Dr Sharmistha Bhattacharyya is carried out as described in the following steps:\n\nDepending upon the patientâ€™s physiological conditions and lifestyle, the result can last up to one or more years. To achieve better and long-lasting results, periodic treatments are recommended. The best outcome of each procedure depends on appropriate patient selection and determining the suitable technique. To get a lasting and effective thread lift in Delhi NCR, book a consultation with Dr Sharmistha Bhattacharyya.\n\n- Markings are made on the target area where the thread will be inserted. The skin is disinfected, and local anaesthesia is administered.\n- Then a small instrument (a cannula or a thin needle) is used to deliver the thread below the skin. The barbs on these threads will lock in place upon insertion to lift very specific areas.\n- The threads are cut at the incision point, and cog ends are submerged underneath the skin to avoid the risk of protrusion.\n- Cleaning of the treated area and application of ice to minimize the risk of bruising and edema."
     },
     {
      "heading": "Results of Thread Lift",
@@ -1106,7 +1106,7 @@
     },
     {
      "heading": "Post-Treatment Guidelines",
-     "body": "- Take pain medications as prescribed by the surgeon.\n- Don’t rub the face vigorously for at least one week after the surgery.\n- Sleep straight and try to prop the head up slightly; don’t roll over onto the face while resting or sleeping.\n- Consume only soft foods for at least a week after the treatment.\n- Do not touch or wash your face for 12-14 hours after the treatment.\n- Limit facial movement for about 2-3 days after the treatment.\n- Apply ice or cold compress for a few days, about 3-4 times a day.\n- Do not apply make-up or creams for 48 hours.\n- Take plenty of rest for 2 days.\n- Avoid massaging for 3 weeks after the surgery.\n- Avoid excess sun exposure."
+     "body": "- Take pain medications as prescribed by the surgeon.\n- Donâ€™t rub the face vigorously for at least one week after the surgery.\n- Sleep straight and try to prop the head up slightly; donâ€™t roll over onto the face while resting or sleeping.\n- Consume only soft foods for at least a week after the treatment.\n- Do not touch or wash your face for 12-14 hours after the treatment.\n- Limit facial movement for about 2-3 days after the treatment.\n- Apply ice or cold compress for a few days, about 3-4 times a day.\n- Do not apply make-up or creams for 48 hours.\n- Take plenty of rest for 2 days.\n- Avoid massaging for 3 weeks after the surgery.\n- Avoid excess sun exposure."
     },
     {
      "heading": "Recovery",
@@ -1114,8 +1114,8 @@
     }
    ],
    "slug": "thread-lift",
-   "fee": "Based on Number & Vector of Threads",
-   "stay": "60–90 min Clinic Procedure",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
+   "stay": "60â€“90 min Clinic Procedure",
    "anesthesia": "Local Anesthesia",
    "short": "A non-surgical lift using absorbable threads to reposition sagging skin.",
    "flagship": false
@@ -1131,7 +1131,7 @@
     },
     {
      "heading": "What to expect in a Power Shot treatment?",
-     "body": "Preparation of growth factors - Firstly, the patient’s blood, just about 30-40 mL, is drawn out from his/her arm using a sterile syringe and equally transferred in sterile 3 or 4 vials. These vials, containing the blood and platelet-activating solution, are then placed in a centrifuge machine. The vials are double centrifuged to get pure concentrated natural growth factors released by blood platelets.\n\nTypically, the colour of growth factors prepared by the standard method is pinkish. On average, the duration of preparation of growth factors is about 45 minutes. Till then, the treatment site is numbed with local anaesthesia.\n\nDrop by Drop injecting of prepared growth factors - After the growth factor concentrate is prepared, the treatment area is properly cleaned with an anti-bacterial solution to avoid infections. Next, the treatment site is covered from all sides with a sterile cloth. Then, the prepared growth factors are delivered into the area via microneedling or injected using very small, sterile needles.\n\nThe use of microneedling in this therapy is highly beneficial as it increases the absorption of growth factors into the target area, thereby enhancing the desired effects of the therapy by many folds.\n\nTo get the benefits of this amazing anti-aging and best hair loss control treatment in Delhi NCR, book a visit with Dr Sharmistha Bhattacharyya today!"
+     "body": "Preparation of growth factors - Firstly, the patientâ€™s blood, just about 30-40 mL, is drawn out from his/her arm using a sterile syringe and equally transferred in sterile 3 or 4 vials. These vials, containing the blood and platelet-activating solution, are then placed in a centrifuge machine. The vials are double centrifuged to get pure concentrated natural growth factors released by blood platelets.\n\nTypically, the colour of growth factors prepared by the standard method is pinkish. On average, the duration of preparation of growth factors is about 45 minutes. Till then, the treatment site is numbed with local anaesthesia.\n\nDrop by Drop injecting of prepared growth factors - After the growth factor concentrate is prepared, the treatment area is properly cleaned with an anti-bacterial solution to avoid infections. Next, the treatment site is covered from all sides with a sterile cloth. Then, the prepared growth factors are delivered into the area via microneedling or injected using very small, sterile needles.\n\nThe use of microneedling in this therapy is highly beneficial as it increases the absorption of growth factors into the target area, thereby enhancing the desired effects of the therapy by many folds.\n\nTo get the benefits of this amazing anti-aging and best hair loss control treatment in Delhi NCR, book a visit with Dr Sharmistha Bhattacharyya today!"
     },
     {
      "heading": "Aftercare Instructions",
@@ -1147,7 +1147,7 @@
     },
     {
      "heading": "Are there any side effects of Power Shot?",
-     "body": "Power shot treatment is extremely safe with minimal to no side effects. That’s because there is no use of chemicals, but instead the use of the patient's blood that can help naturally regenerate the damaged cells of the skin and hair. However, patients can experience mild, temporary side effects such as pain, irritation, swelling, or bleeding at or around the site of injection."
+     "body": "Power shot treatment is extremely safe with minimal to no side effects. Thatâ€™s because there is no use of chemicals, but instead the use of the patient's blood that can help naturally regenerate the damaged cells of the skin and hair. However, patients can experience mild, temporary side effects such as pain, irritation, swelling, or bleeding at or around the site of injection."
     },
     {
      "heading": "How long does the effect of Power Shot last?",
@@ -1163,7 +1163,7 @@
     }
    ],
    "slug": "power-shot",
-   "fee": "Per Session / Course",
+   "fee": "Pricing tailored to individual assessment \u2014 discussed at consultation",
    "stay": "45 min Clinic Visit",
    "anesthesia": "Topical Numbing",
    "short": "Growth factor therapy to rejuvenate skin and support scalp health.",
@@ -1186,7 +1186,7 @@
     "post-pregnancy body surgery Gurgaon",
     "tummy tuck breast lift Gurgaon"
    ],
-   "excerpt": "A single-surgeon clinical guide to post-pregnancy restoration — combining abdominoplasty, breast refinement, and targeted contouring with honest recovery timelines and radical surgical transparency."
+   "excerpt": "A single-surgeon clinical guide to post-pregnancy restoration â€” combining abdominoplasty, breast refinement, and targeted contouring with honest recovery timelines and radical surgical transparency."
   },
   {
    "title": "Tummy Tuck in South Delhi, Gurgaon & Faridabad: A Conversation, Not Just a Procedure",
@@ -1195,13 +1195,13 @@
    "readTime": "5 Min Read",
    "slug": "tummy-tuck-south-delhi",
    "metaTitle": "Tummy Tuck in South Delhi | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "A calm, honest look at tummy tuck surgery in South Delhi — what actually happens, how recovery is protocolled step by step, and why you're never left to figure it out alone.",
+   "metaDescription": "A calm, honest look at tummy tuck surgery in South Delhi â€” what actually happens, how recovery is protocolled step by step, and why you're never left to figure it out alone.",
    "keywords": [
     "tummy tuck South Delhi",
     "abdominoplasty South Delhi",
     "tummy tuck surgeon Delhi"
    ],
-   "excerpt": "A calm, honest look at abdominoplasty and diastasis recti repair — examining what actually happens in the theatre, protocolled week-by-week recovery, and natural abdominal contours."
+   "excerpt": "A calm, honest look at abdominoplasty and diastasis recti repair â€” examining what actually happens in the theatre, protocolled week-by-week recovery, and natural abdominal contours."
   },
   {
    "title": "Breast Augmentation in Faridabad, Delhi & Gurgaon: The Questions You Haven't Asked Anyone Yet",
@@ -1209,14 +1209,14 @@
    "tag": "Implant Architecture & Proportion",
    "readTime": "6 Min Read",
    "slug": "breast-augmentation-faridabad-sector-14-17",
-   "metaTitle": "Breast Augmentation in Faridabad, Sector 14–17 | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "A gentle, honest guide to breast augmentation for patients in Faridabad Sector 14, 15, 16 and 17 — every question answered, every step protocolled, complete discretion guaranteed.",
+   "metaTitle": "Breast Augmentation in Faridabad, Sector 14â€“17 | Dr. Sharmistha Bhattacharyya",
+   "metaDescription": "A gentle, honest guide to breast augmentation for patients in Faridabad Sector 14, 15, 16 and 17 â€” every question answered, every step protocolled, complete discretion guaranteed.",
    "keywords": [
     "breast augmentation Faridabad",
     "breast implants Faridabad Sector 15",
     "breast surgery Faridabad Sector 16"
    ],
-   "excerpt": "An unhurried clinical guide to breast augmentation — addressing implant selection, anatomic placement, operating theatre realities, and recovery with complete patient privacy."
+   "excerpt": "An unhurried clinical guide to breast augmentation â€” addressing implant selection, anatomic placement, operating theatre realities, and recovery with complete patient privacy."
   },
   {
    "title": "Breast Lift or Breast Reduction? The Difference Most Patients in Delhi, Gurgaon & Faridabad Don't Realise Until They Ask",
@@ -1225,14 +1225,14 @@
    "readTime": "7 Min Read",
    "slug": "breast-lift-vs-reduction-greater-faridabad",
    "metaTitle": "Breast Lift vs Breast Reduction in Greater Faridabad | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "Breast lift and breast reduction are not the same procedure. A compassionate, clear guide to the real differences, for patients across Greater Faridabad — honest, protocol-driven, judgment-free.",
+   "metaDescription": "Breast lift and breast reduction are not the same procedure. A compassionate, clear guide to the real differences, for patients across Greater Faridabad â€” honest, protocol-driven, judgment-free.",
    "keywords": [
     "breast lift Greater Faridabad",
     "breast reduction Greater Faridabad",
     "mastopexy Faridabad",
     "breast surgery Faridabad"
    ],
-   "excerpt": "Separating mastopexy from reduction — why sag vs. weight dictates the surgical plan, busting the myth of pregnancy prerequisites, and understanding physical pain relief."
+   "excerpt": "Separating mastopexy from reduction â€” why sag vs. weight dictates the surgical plan, busting the myth of pregnancy prerequisites, and understanding physical pain relief."
   },
   {
    "title": "Intimate Area Surgery in Gurgaon, Delhi & Faridabad: A Conversation That Stays in This Room",
@@ -1241,7 +1241,7 @@
    "readTime": "6 Min Read",
    "slug": "intimate-area-surgery-vaginoplasty-gurgaon-golf-course-road",
    "metaTitle": "Intimate Area Surgery & Vaginoplasty in Gurgaon | Golf Course Road | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "The most private conversation you may ever have about your body — handled with complete discretion and compassion. Intimate area surgery and vaginoplasty for patients near Golf Course Road, Gurgaon.",
+   "metaDescription": "The most private conversation you may ever have about your body â€” handled with complete discretion and compassion. Intimate area surgery and vaginoplasty for patients near Golf Course Road, Gurgaon.",
    "keywords": [
     "intimate surgery Gurgaon",
     "vaginoplasty Golf Course Road",
@@ -1249,7 +1249,7 @@
     "labiaplasty Gurgaon",
     "women's intimate surgery after C-section"
    ],
-   "excerpt": "A discreet, respectful clinical perspective on intimate area surgery — addressing postpartum laxity, physical discomfort, and restorative care with complete surgical transparency and strict confidentiality."
+   "excerpt": "A discreet, respectful clinical perspective on intimate area surgery â€” addressing postpartum laxity, physical discomfort, and restorative care with complete surgical transparency and strict confidentiality."
   },
   {
    "title": "Facial Contouring in Gurgaon, Delhi & Faridabad: Why It's Rarely Just One Procedure",
@@ -1258,7 +1258,7 @@
    "readTime": "6 Min Read",
    "slug": "facial-contouring-surgical-non-surgical-gurgaon-south-delhi-faridabad",
    "metaTitle": "Facial Contouring in Gurgaon, South Delhi & Faridabad | Surgical & Non-Surgical | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "Facial contouring doesn't mean one big surgery — it's often a combination of small, precise choices. A compassionate guide to surgical and non-surgical facial contouring for patients across Gurgaon, South Delhi and Faridabad.",
+   "metaDescription": "Facial contouring doesn't mean one big surgery â€” it's often a combination of small, precise choices. A compassionate guide to surgical and non-surgical facial contouring for patients across Gurgaon, South Delhi and Faridabad.",
    "keywords": [
     "facial contouring Gurgaon",
     "jawline filler South Delhi",
@@ -1266,7 +1266,7 @@
     "facial liposuction Gurgaon",
     "masseter botox South Delhi"
    ],
-   "excerpt": "Facial contouring doesn't mean one big surgery — it's often a combination of small, precise choices. A compassionate clinical guide to surgical and non-surgical facial harmonization."
+   "excerpt": "Facial contouring doesn't mean one big surgery â€” it's often a combination of small, precise choices. A compassionate clinical guide to surgical and non-surgical facial harmonization."
   },
   {
    "title": "Rhinoplasty in Faridabad, Delhi & Gurgaon: Walking Through the Fear, Not Around It",
@@ -1274,7 +1274,7 @@
    "tag": "Nasal Harmony & Functional Septoplasty",
    "readTime": "7 Min Read",
    "slug": "rhinoplasty-faridabad-sector-14-17",
-   "metaTitle": "Rhinoplasty in Faridabad, Sector 14–17 | Dr. Sharmistha Bhattacharyya",
+   "metaTitle": "Rhinoplasty in Faridabad, Sector 14â€“17 | Dr. Sharmistha Bhattacharyya",
    "metaDescription": "Considering rhinoplasty in Faridabad? A compassionate, step-by-step guide walking nervous first-time patients through the operating theatre, the procedure, and a protocolled recovery.",
    "keywords": [
     "rhinoplasty Faridabad",
@@ -1284,19 +1284,19 @@
    "excerpt": "A compassionate, step-by-step clinical guide walking nervous first-time patients through the operating theatre, procedural anatomy, and a protocolled recovery."
   },
   {
-   "title": "Blepharoplasty in Gurgaon: \"I Just Look Tired\" — And What Can Actually Be Done About It",
+   "title": "Blepharoplasty in Gurgaon: \"I Just Look Tired\" â€” And What Can Actually Be Done About It",
    "category": "Eyes",
    "tag": "Eyelid Rejuvenation & Vision Clearance",
    "readTime": "5 Min Read",
    "slug": "blepharoplasty-gurgaon-golf-course-road",
    "metaTitle": "Blepharoplasty (Eyelid Surgery) in Gurgaon | Golf Course Road | Dr. Sharmistha Bhattacharyya",
-   "metaDescription": "\"I just look tired all the time\" — a compassionate guide to blepharoplasty for patients near Golf Course Road, Gurgaon, covering the procedure, recovery, and honest expectations.",
+   "metaDescription": "\"I just look tired all the time\" â€” a compassionate guide to blepharoplasty for patients near Golf Course Road, Gurgaon, covering the procedure, recovery, and honest expectations.",
    "keywords": [
     "blepharoplasty Gurgaon",
     "eyelid surgery Golf Course Road",
     "droopy eyelid surgery Gurgaon"
    ],
-   "excerpt": "A compassionate clinical guide to blepharoplasty for patients near Golf Course Road, Gurgaon — covering upper and lower eyelid surgery, recovery realities, and rested eyes."
+   "excerpt": "A compassionate clinical guide to blepharoplasty for patients near Golf Course Road, Gurgaon â€” covering upper and lower eyelid surgery, recovery realities, and rested eyes."
   }
  ],
  "faq": [
@@ -1310,7 +1310,7 @@
   },
   {
    "q": "How long is the typical recovery period?",
-   "a": "Recovery depends strictly on the procedure. Facial procedures like rhinoplasty typically require 7–10 days of social downtime. Body procedures like liposuction involve 4–7 days, while tummy tucks and mommy makeovers require 10–14 days before resuming desk work. A detailed recovery roadmap is provided prior to surgery."
+   "a": "Recovery depends strictly on the procedure. Facial procedures like rhinoplasty typically require 7â€“10 days of social downtime. Body procedures like liposuction involve 4â€“7 days, while tummy tucks and mommy makeovers require 10â€“14 days before resuming desk work. A detailed recovery roadmap is provided prior to surgery."
   },
   {
    "q": "Do you accept outstation and international patients?",

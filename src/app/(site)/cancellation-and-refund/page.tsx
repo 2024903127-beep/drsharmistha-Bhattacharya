@@ -20,7 +20,7 @@ export default function CancellationAndRefund() {
       <section className="space-y-4">
         <h2 className="text-2xl font-serif text-forest">1. Consultation Bookings &amp; Fee Structure</h2>
         <p>
-          Consultations with <strong>Dr. Sharmistha Bhattacharyya</strong> (Senior Consultant Plastic &amp; Aesthetic Surgeon, MCh AIIMS New Delhi) represent an exclusive reservation of dedicated surgical, diagnostic, and clinical evaluation time (typically 30 to 45 minutes).
+          Consultations with <strong>Dr. Sharmistha Bhattacharyya</strong> (Senior Consultant Plastic &amp; Aesthetic Surgeon, MCh AIIMS New Delhi) represent an exclusive reservation of dedicated surgical, diagnostic, and clinical evaluation time (up to 45 minutes).
         </p>
         <p>
           To secure and block a dedicated slot on Dr. Sharmistha&rsquo;s operating and outpatient calendar, payment of the consultation fee (₹{site.consultFeeInr.toLocaleString("en-IN")}) is required at the time of booking. All transactions are securely processed via Razorpay.

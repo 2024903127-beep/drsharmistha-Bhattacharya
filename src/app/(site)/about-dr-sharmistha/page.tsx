@@ -33,7 +33,8 @@ export default function About() {
         <div>
           <h1 className="h-display text-5xl text-forest md:text-6xl">Dr. Sharmistha Bhattacharyya</h1>
           <p className="mt-5 text-lg text-stone">Plastic, cosmetic and reconstructive surgeon, Faridabad. More than {site.claims.years} years of surgical and clinical practice, trained at AIIMS New Delhi.</p>
-          <p className="mt-4 max-w-[62ch] leading-relaxed text-stone">A single-surgeon practice where every surgical blueprint is calibrated to your natural anatomy, planned with transparency, minimal tissue trauma and results designed to age gracefully. Her expertise includes South Asian facial anatomy, safety protocols for melanin-rich skin, complex breast reconstruction and limb salvage surgery.</p>
+          <p className="mt-4 max-w-[62ch] leading-relaxed text-stone">With an artistic approach, Dr. Sharmistha predicts how your anatomy will evolve — crafting results that hold beautifully not just today, but years to come. Each consultation is a detailed, private 1:1 session, and every surgical blueprint is a tailor-made solution calibrated to your natural anatomy, your ethnicity, and your individual goals.</p>
+          <p className="mt-4 max-w-[62ch] leading-relaxed text-stone">She provides a safe, non-judgmental space for open conversation about your desires and preferences — empowering clients with body positivity and the confidence to take ownership of their body and life. Her practice includes South Asian facial anatomy, safety protocols for melanin-rich skin, complex breast reconstruction and limb salvage surgery.</p>
         </div>
       </section>
 
@@ -60,7 +61,7 @@ export default function About() {
             <li className="border-l-2 border-gold pl-4">ISAPS, International Society of Aesthetic Plastic Surgery</li>
           </ul>
           <h2 className="h-section mt-12">The consultation standard</h2>
-          <p className="mt-4 text-stone">45 to 60 dedicated minutes with anatomical examination, tissue assessment and standardised multi-angle photography. You leave with a written plan covering technique, scars, downtime, revision likelihood and an itemised cost. No hidden fees, no obligation to book on the day.</p>
+          <p className="mt-4 text-stone">Up to 60 dedicated minutes with anatomical examination, tissue assessment and standardised multi-angle photography. You leave with a written plan covering technique, scars, downtime, revision likelihood and a transparent, itemised cost discussed individually based on your assessment. No hidden fees, no obligation to book on the day.</p>
         </div>
       </section>
 

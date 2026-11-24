@@ -30,7 +30,7 @@ export const site = {
   ],
   // Online consultation fee in INR. Set CONSULTATION_FEE_INR in .env (placeholder default).
   consultFeeInr: Number(process.env.CONSULTATION_FEE_INR ?? 1500),
-  claims: { rating: "5.0", reviews: "120+", satisfaction: "99%", years: "10+" },
+  claims: { rating: "5.0", reviews: "120+", years: "10+" },
   disclaimer:
     "Information on this website is for education only and is not medical advice. Outcomes of surgery vary between individuals and no result can be guaranteed.",
 };
@@ -48,19 +48,21 @@ export const reels = [
 ];
 
 export const pillars = [
-  { t: "One surgeon, start to finish", d: "Dr. Sharmistha conducts every consultation, performs every operation personally and sees you at every follow-up. You are never handed to a trainee or a sales desk." },
-  { t: "Plain answers", d: "There are no sales targets. If your goals are better met without surgery, you are told so. If surgery is not right for you, that is said plainly." },
+  { t: "One surgeon, start to finish", d: "Dr. Sharmistha conducts every consultation, performs every operation personally and sees you at every follow-up — handholding by her and her team throughout. You are never handed to a trainee or a sales desk." },
+  { t: "Tailored for your anatomy & ethnicity", d: "With an artistic approach, Dr. Sharmistha predicts how your anatomy will evolve — so results are not just based on today, but years to come. Each plan is a bespoke, tailor-made solution targeting natural results while preserving your ethnicity and individuality." },
+  { t: "Plain answers, transparent pricing", d: "There are no sales targets. Pricing is discussed individually based on your personal assessment — no hidden fees, no same-day pressure. If surgery is not the right path for you, that is said plainly." },
   { t: "Hospital-grade safety", d: "Every operation takes place in an accredited multi-speciality hospital with emergency, ICU and anaesthesia cover on site." },
-  { t: "Follow-up that continues", d: "Reviews at 1 week, 1 month, 3 months, 6 months and 12 months to check healing, scars and your satisfaction with the result." },
+  { t: "Structured aftercare, every step", d: "Detailed home-care instructions covering your diet habits, lifestyle choices and any predictable needs during or after surgery — well thought through and communicated clearly, so your recovery is never a guessing game." },
+  { t: "A safe space for open conversation", d: "Dr. Sharmistha provides a safe, non-judgmental space for open discussion about your desires and preferences. She empowers her clients with body positivity and to take ownership of their body and life." },
 ];
 
 export const journey = [
   ["Enquiry and pre-screening", "You reach the coordination desk by phone or WhatsApp. A short screening checks whether you need a surgical evaluation or a non-invasive treatment."],
-  ["Comprehensive consultation", "A private 45 to 60 minute consultation with Dr. Sharmistha: examination, tissue assessment and standardised photographs."],
-  ["Written clinical plan", "You receive the recommended technique, alternatives considered, downtime, risks and an itemised fee breakdown. There is no same-day pressure to commit."],
+  ["Comprehensive consultation", "A private consultation of up to 60 minutes with Dr. Sharmistha: a detailed 1:1 examination, tissue assessment and standardised photographs. Your ethnicity, anatomy and aesthetic goals shape a fully customised plan — not a template."],
+  ["Written clinical plan", "You receive the recommended technique, alternatives considered, downtime, risks and a transparent, itemised cost breakdown discussed individually based on your assessment. There is no same-day pressure to commit."],
   ["Pre-operative assessment", "Blood tests, ECG, chest X-ray and a pre-anaesthetic check-up, with clear instructions on nicotine, blood thinners and compression garments."],
   ["Day of surgery", "Pre-operative markings by Dr. Sharmistha, a surgical safety checklist and a personal recovery review before discharge."],
-  ["Early recovery and reviews", "Written medication schedules, emergency contacts, and checks at day 7, day 30 and month 3."],
+  ["Early recovery and reviews", "Written medication schedules, emergency contacts, and checks at day 7, day 30 and month 3. Detailed home-care instructions are provided covering diet, activity and any predictable needs during your recovery."],
   ["Twelve-month review", "A full photographic reassessment under matched lighting to review scars, symmetry and long-term settling."],
 ];
 
