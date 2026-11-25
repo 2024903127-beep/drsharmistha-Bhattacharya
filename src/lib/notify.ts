@@ -28,7 +28,7 @@ async function record(c: Ctx, channel: "whatsapp" | "email", template: string, t
 async function wa(c: Ctx, to: string, template: string, params: string[], buttonToken?: string) {
   const r = await sendTemplate({ to, name: template, params, buttonToken })
     .catch((e): Sent => ({ ok: false, error: String(e) }));
-  await record(c, "whatsapp", template, to, r);
+  await record(c, "whatsapp", r.templateUsed ?? template, to, r);
   return r;
 }
 

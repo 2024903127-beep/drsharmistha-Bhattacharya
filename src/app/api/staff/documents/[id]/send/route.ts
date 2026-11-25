@@ -16,6 +16,13 @@ export async function POST(_: Request, { params }: { params: Promise<{ id: strin
   const r = await notifyDocument(doc, p!, a?.appointment_id);
   await audit(s, "sent_document", "document", doc.id, { kind: doc.kind });
   const [w, e] = r;
-  const word = (x: typeof w) => (x.ok ? "sent" : x.skipped ? "not set up" : "failed");
+  const word = (x: typeof w) =>
+    x.via === "text_fallback"
+      ? `24h fallback only (${x.error ?? "template failed"})`
+      : x.ok
+        ? "sent"
+        : x.skipped
+          ? "not set up"
+          : `failed (${x.error ?? "unknown error"})`;
   return NextResponse.json({ ok: w.ok || e.ok, summary: `WhatsApp: ${word(w)}. Email: ${e.skipped && !p?.email ? "no email on file" : word(e)}.` });
 }

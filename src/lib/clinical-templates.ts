@@ -227,7 +227,7 @@ export const DEFAULT_CATALOG: ClinicalCatalog = {
   ],
 
   adviceTemplates: [
-    // Generic Plastic Surgery Set (ready to edit when exact Google Drive sheets arrive)
+    // Generic Plastic Surgery Set (editable per procedure in Clinical templates)
     {
       id: "adv-gen-before",
       procedure: "General Plastic Surgery",

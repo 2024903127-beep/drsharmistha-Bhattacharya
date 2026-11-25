@@ -19,5 +19,7 @@ Do not put medical details in templates. Documents are sent as a secure link but
 Notes
 - Replace YOURDOMAIN with the real domain. For the three URL buttons Meta asks for an example value of {{1}}; use any sample token.
 - Variables in {{ }} cannot be empty. The app sends text such as "shared before your consultation" when no Meet link exists yet.
-- Until a template shows "Approved", sends fail and the failure appears in Staff portal > WhatsApp and email > Recent messages. Email still goes out.
+- If your Meta Business Manager uses different template names, override any slot in Vercel Environment Variables (`WHATSAPP_TEMPLATE_BOOKING_CONFIRMATION`, `WHATSAPP_TEMPLATE_PAYMENT_RECEIPT`, `WHATSAPP_TEMPLATE_REMINDER`, `WHATSAPP_TEMPLATE_RESCHEDULED`, `WHATSAPP_TEMPLATE_CANCELLED`, `WHATSAPP_TEMPLATE_PRESCRIPTION_READY`, `WHATSAPP_TEMPLATE_REPORT_READY`, `WHATSAPP_TEMPLATE_FOLLOWUP`).
+- Optionally set `WHATSAPP_WABA_ID` (WhatsApp Business Account ID) in Vercel to view live `APPROVED` / `PENDING` template status and run strict template tests in **Staff portal > WhatsApp and email**.
+- Until a template shows "Approved", Meta rejects outside-24h template calls and the failure (plus any 24h fallback warning) appears in **Staff portal > WhatsApp and email > Recent messages**. Email still goes out.
 - Replies from patients arrive in the WhatsApp Business app or Manager inbox of the same number.

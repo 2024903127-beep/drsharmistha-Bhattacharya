@@ -520,7 +520,7 @@ function AdviceTab({ catalog, onSave }: { catalog: ClinicalCatalog; onSave: (c: 
         <div>
           <h2 className="text-lg">Procedure-Specific Advice &amp; Surgical Orders</h2>
           <p className="mt-1 text-xs text-p-muted">
-            Paste exact care sheets from Google Drive here anytime — edit Before Surgery, On Day of Surgery, or After Discharge checklists in seconds.
+            Create or edit procedure-specific care checklists here anytime — Before Surgery, On Day of Surgery, or After Discharge.
           </p>
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -575,8 +575,8 @@ function AdviceTab({ catalog, onSave }: { catalog: ClinicalCatalog; onSave: (c: 
           <input id="adv-title" required className="p-input" placeholder="e.g. Post-Rhinoplasty Care Instructions" value={title} onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div>
-          <label className="p-label" htmlFor="adv-body">Instructions (paste directly from Google Drive) *</label>
-          <textarea id="adv-body" required rows={10} className="p-input leading-relaxed text-xs" placeholder="Paste numbered instructions here..." value={content} onChange={(e) => setContent(e.target.value)} />
+          <label className="p-label" htmlFor="adv-body">Instructions *</label>
+          <textarea id="adv-body" required rows={10} className="p-input leading-relaxed text-xs" placeholder="Enter numbered care instructions (1., 2., 3. ...)" value={content} onChange={(e) => setContent(e.target.value)} />
         </div>
         <button type="submit" className="p-btn w-full">
           <Check size={16} /> {editingId ? "Update Advice Sheet" : "Save Advice Sheet"}

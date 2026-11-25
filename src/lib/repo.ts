@@ -92,7 +92,21 @@ export async function listPayments(): Promise<Pay[]> {
 export async function listMessages() {
   if (!dbConfigured()) return [];
   const { data } = await db().from("message_log").select("channel,template,recipient,status,error,created_at").order("created_at", { ascending: false }).limit(30);
-  return (data ?? []).map((m: any) => ({ when: ago(m.created_at), channel: m.channel, template: m.template, to: m.recipient, status: m.status === "sent" ? "Approved" : m.status === "skipped" ? "Pending" : "Failed", error: m.error as string | null }));
+  return (data ?? []).map((m: any) => ({
+    when: ago(m.created_at),
+    channel: m.channel,
+    template: m.template,
+    to: m.recipient,
+    status:
+      m.status === "sent"
+        ? /fallback/i.test(m.error || "")
+          ? "24h fallback"
+          : "Sent"
+        : m.status === "skipped"
+          ? "Skipped"
+          : "Failed",
+    error: m.error as string | null,
+  }));
 }
 export async function listAudit() {
   if (!dbConfigured()) return mock.audit;

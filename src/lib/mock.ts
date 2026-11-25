@@ -41,7 +41,7 @@ export const audit = [
   { when: "Yesterday, 5:02 PM", who: "Front Desk", action: "Issued refund", record: "Dev Choudhary" },
 ];
 export const tone = (s: string) =>
-  /confirmed|paid|completed|booked|approved|connected/i.test(s) ? "b-green"
-  : /pending|follow|draft|due/i.test(s) ? "b-amber"
-  : /cancel|refund|fail|conflict|not configured/i.test(s) ? "b-red"
+  /confirmed|paid|completed|booked|approved|connected|^sent$/i.test(s) ? "b-green"
+  : /pending|follow|draft|due|fallback|skipped/i.test(s) ? "b-amber"
+  : /cancel|refund|fail|conflict|not configured|rejected/i.test(s) ? "b-red"
   : /consult|new|contacted/i.test(s) ? "b-blue" : "b-grey";
