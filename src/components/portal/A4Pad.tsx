@@ -112,7 +112,9 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
 
   const getInkCtx = useCallback(() => {
     if (!inkCtx.current && ink.current) {
-      inkCtx.current = ink.current.getContext("2d", { desynchronized: true });
+      // Avoid { desynchronized: true } on transparent overlay canvases: Chromium/Windows
+      // DirectComposition drops backbuffer alpha on scroll and turns the canvas solid black.
+      inkCtx.current = ink.current.getContext("2d");
     }
     return inkCtx.current;
   }, []);
@@ -165,14 +167,33 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
   const redraw = useCallback(() => {
     const g = getInkCtx();
     if (!g) return;
+    g.save();
+    g.globalCompositeOperation = "source-over";
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.clearRect(0, 0, W * S, H * S);
+    g.restore();
     strokes.current.forEach((s) => drawStroke(g, s));
   }, [getInkCtx]);
 
   useEffect(() => {
     drawBase();
   }, [drawBase]);
+
+  // Re-sync ink & base buffers safely after tab wake or browser navigation restore
+  useEffect(() => {
+    const refresh = () => {
+      if (document.visibilityState === "visible") {
+        drawBase();
+        redraw();
+      }
+    };
+    document.addEventListener("visibilitychange", refresh);
+    window.addEventListener("pageshow", refresh);
+    return () => {
+      document.removeEventListener("visibilitychange", refresh);
+      window.removeEventListener("pageshow", refresh);
+    };
+  }, [drawBase, redraw]);
 
   useEffect(() => {
     try {
@@ -588,8 +609,8 @@ export function A4Pad({ id, patient, onSave }: { id: string; patient: string; on
         </div>
       </div>
       {msg && <p role="status" className="mb-3 text-sm text-p-muted">{msg}</p>}
-      <div className="pad-scroll mx-auto max-w-[794px] overflow-hidden rounded-lg bg-white shadow-[0_8px_30px_rgba(22,75,53,.15)]">
-        <div className="relative w-full select-none" style={{ aspectRatio: `${W} / ${H}` }}>
+      <div className="pad-scroll mx-auto max-w-[794px] overflow-hidden rounded-lg bg-white shadow-[0_8px_30px_rgba(22,75,53,.15)]" style={{ isolation: "isolate" }}>
+        <div className="relative w-full select-none bg-white" style={{ aspectRatio: `${W} / ${H}` }}>
           <canvas ref={base} width={W * S} height={H * S} className="absolute inset-0 size-full pointer-events-none" />
           <canvas
             ref={ink}
