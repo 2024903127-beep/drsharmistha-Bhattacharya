@@ -139,7 +139,7 @@ export default async function Image() {
               alignItems: "flex-start",
             }}
           >
-            AIIMS-trained Plastic Surgeon in Faridabad serving Delhi NCR &amp; Gurgaon.
+            AIIMS-trained Plastic &amp; Aesthetic Surgeon serving across Delhi NCR — Gurgaon &amp; South Delhi.
           </div>
 
           {/* Credential pills */}
@@ -189,7 +189,7 @@ export default async function Image() {
                   display: "flex",
                 }}
               >
-                Accord Super Speciality Hospital · Faridabad · Delhi NCR
+                Across Delhi NCR · Gurgaon (Golf Course Road) · South Delhi · Faridabad
               </div>
               <div
                 style={{

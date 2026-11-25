@@ -75,11 +75,13 @@ export const physicianLd = {
   geo: { "@type": "GeoCoordinates", latitude: "28.3929", longitude: "77.3085" },
   hasMap: site.hospital.maps,
   areaServed: [
-    { "@type": "City", name: "Faridabad" },
     { "@type": "City", name: "Gurgaon" },
-    { "@type": "City", name: "Delhi" },
-    { "@type": "State", name: "Haryana" },
+    { "@type": "Place", name: "Golf Course Road, Gurgaon" },
+    { "@type": "Place", name: "South Delhi" },
+    { "@type": "City", name: "New Delhi" },
     { "@type": "State", name: "Delhi NCR" },
+    { "@type": "City", name: "Faridabad" },
+    { "@type": "State", name: "Haryana" },
   ],
   sameAs: [
     site.instagram,
@@ -109,7 +111,7 @@ export const websiteLd = {
   "@id": `${site.url}/#website`,
   name: site.brand,
   url: site.url,
-  description: "AIIMS-trained plastic and aesthetic surgeon in Faridabad serving Delhi NCR. Book online consultations with Google Meet.",
+  description: "AIIMS-trained plastic and aesthetic surgeon serving patients across Delhi NCR — Gurgaon (Golf Course Road), South Delhi and Faridabad. Book private 1:1 online consultations.",
   inLanguage: "en-IN",
   potentialAction: {
     "@type": "SearchAction",
@@ -137,7 +139,7 @@ export const localBusinessLd = {
   ],
   geo: { "@type": "GeoCoordinates", latitude: "28.3929", longitude: "77.3085" },
   hasMap: site.hospital.maps,
-  areaServed: ["Faridabad", "Gurgaon", "Delhi", "Delhi NCR"],
+  areaServed: ["Gurgaon", "South Delhi", "Delhi NCR", "Faridabad"],
   sameAs: [site.instagram],
 };
 
@@ -237,7 +239,7 @@ export const serviceLd = (name: string, description: string, path: string, price
   description,
   url: `${site.url}${path}`,
   provider: { "@id": `${site.url}/#physician` },
-  areaServed: ["Faridabad", "Gurgaon", "Delhi NCR"],
+  areaServed: ["Gurgaon", "South Delhi", "Delhi NCR", "Faridabad"],
   serviceType: "Medical Procedure",
   ...(price ? { offers: { "@type": "Offer", price, priceCurrency: "INR", availability: "https://schema.org/InStock" } } : {}),
 });

@@ -67,7 +67,7 @@ export const journey = [
 ];
 
 export const testimonials = [
-  { n: "Akash Yadav", p: "Rhinoplasty", l: "New Delhi", q: "At first, I was quite anxious about altering my facial proportions. But when I met Dr. Sharmistha, she clearly explained my nasal anatomy and what would look harmonious. The result is completely natural. Nobody can tell I had surgery, only that I look refreshed." },
   { n: "Sonia Kapoor", p: "Breast reduction", l: "Gurgaon", q: "After years of chronic back pain, I finally consulted Dr. Sharmistha. She treated me with respect, dignity and clinical clarity. The relief was immediate after surgery, and the shape is wonderful." },
+  { n: "Akash Yadav", p: "Rhinoplasty", l: "New Delhi", q: "At first, I was quite anxious about altering my facial proportions. But when I met Dr. Sharmistha, she clearly explained my nasal anatomy and what would look harmonious. The result is completely natural. Nobody can tell I had surgery, only that I look refreshed." },
   { n: "Rohit Mathur", p: "Abdominal liposuction", l: "Faridabad", q: "What impressed me most was her refusal to sell me unnecessary add-on treatments. She explained what liposuction could do for my abdomen and what depended on diet. Three months out, the contour is natural." },
 ];

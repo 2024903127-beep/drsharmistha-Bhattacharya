@@ -5,9 +5,9 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { CtaBand } from "@/components/site/CtaBand";
 
 export const metadata = buildMeta({
-  title: "Plastic Surgery Procedures in Faridabad | Dr. Sharmistha",
+  title: "Plastic Surgery Procedures Across Delhi NCR | Dr. Sharmistha",
   description:
-    "Rhinoplasty, facelift, breast surgery, tummy tuck, liposuction, hair transplant, laser and anti-ageing treatments in Faridabad by an AIIMS-trained plastic surgeon.",
+    "Rhinoplasty, facelift, breast surgery, tummy tuck, liposuction, hair transplant, laser and anti-ageing treatments across Delhi NCR — Gurgaon, South Delhi & Faridabad.",
   path: "/services",
 });
 
@@ -145,19 +145,16 @@ export default function Services() {
                         {s.short}
                       </p>
 
-                      {/* Fee badge */}
-                      {s.fee && (
-                        <div
-                          className={`mt-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-medium ${
-                            isDark
-                              ? "border border-gold/20 bg-gold/10 text-gold/90"
-                              : "border border-forest/10 bg-sage/60 text-forest"
-                          }`}
-                        >
-                          <span className="text-gold font-bold">₹</span>
-                          <span className="font-sans">{s.fee}</span>
-                        </div>
-                      )}
+                      {/* Assessment-based tag */}
+                      <div
+                        className={`mt-4 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium ${
+                          isDark
+                            ? "border border-gold/20 bg-gold/10 text-gold/85"
+                            : "border border-forest/10 bg-sage/60 text-forest"
+                        }`}
+                      >
+                        <span className="font-sans">Tailored to 1:1 assessment</span>
+                      </div>
 
                       {/* Learn more CTA */}
                       <div

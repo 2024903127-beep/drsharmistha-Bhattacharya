@@ -82,6 +82,11 @@ const config: NextConfig = {
       { source: "/gynecomastia", destination: "/services/gynecomastia", permanent: true },
       { source: "/liposuction", destination: "/services/liposuction", permanent: true },
       { source: "/facelift", destination: "/services/facelift", permanent: true },
+      // Segregated Delhi NCR location redirects (preserve legacy links)
+      { source: "/locations/gurgaon", destination: "/locations/gurgaon-golf-course-road", permanent: true },
+      { source: "/locations/delhi", destination: "/locations/south-delhi", permanent: true },
+      { source: "/services/:slug/gurgaon", destination: "/services/:slug/gurgaon-golf-course-road", permanent: true },
+      { source: "/services/:slug/delhi", destination: "/services/:slug/south-delhi", permanent: true },
     ];
   },
 };

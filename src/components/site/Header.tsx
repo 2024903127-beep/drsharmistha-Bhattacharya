@@ -8,7 +8,7 @@ const nav = [
   { href: "/",                    label: "Home" },
   { href: "/services",            label: "Procedures" },
   { href: "/about-dr-sharmistha", label: "About the surgeon" },
-  { href: "/locations/faridabad", label: "Locations" },
+  { href: "/locations",           label: "Locations" },
   { href: "/blog",                label: "Patient guides" },
   { href: "/contact",             label: "Contact" },
 ];

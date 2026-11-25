@@ -35,7 +35,7 @@ export default async function Article({ params }: P) {
         <p className="mt-6 font-display text-2xl leading-snug text-stone">{a.excerpt}</p>
         {rel && (
           <section className="mt-12 border-t border-forest/15 pt-8">
-            <h2 className="font-display text-3xl text-forest">About {rel.name.toLowerCase()}</h2>
+            <h2 className="font-display text-3xl text-forest">What is {rel.name.toLowerCase()}?</h2>
             <div className="mt-4"><Prose>{rel.sections[0].body.split("\n\n").slice(0, 2).join("\n\n")}</Prose></div>
             <Link href={`/services/${rel.slug}`} className="btn btn-line mt-4">Read the full {rel.name.toLowerCase()} guide</Link>
           </section>

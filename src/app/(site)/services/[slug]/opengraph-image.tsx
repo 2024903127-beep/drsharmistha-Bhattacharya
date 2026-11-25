@@ -17,7 +17,6 @@ export default async function Image({
   const name = s?.name ?? "Procedure";
   const category = s?.category ?? "Plastic Surgery";
   const short = s?.short ?? "";
-  const fee = s?.fee;
 
   const nameFontSize = name.length > 22 ? 68 : name.length > 16 ? 76 : 88;
 
@@ -147,34 +146,32 @@ export default async function Image({
             {short.length > 120 ? short.slice(0, 118) + "…" : short}
           </div>
 
-          {/* Fee badge */}
-          {fee && (
+          {/* Assessment pill */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: "16px",
+              marginBottom: "4px",
+            }}
+          >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginTop: "16px",
-                marginBottom: "4px",
+                gap: "8px",
+                border: "1px solid rgba(185,154,101,0.3)",
+                borderRadius: "999px",
+                padding: "6px 16px",
+                fontSize: "14px",
+                fontFamily: "Arial, sans-serif",
+                color: "rgba(247,244,237,0.70)",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  border: "1px solid rgba(185,154,101,0.3)",
-                  borderRadius: "999px",
-                  padding: "6px 16px",
-                  fontSize: "14px",
-                  fontFamily: "Arial, sans-serif",
-                  color: "rgba(247,244,237,0.60)",
-                }}
-              >
-                <span style={{ color: "#b99a65", fontWeight: 600 }}>INR</span>
-                <span>{fee.length > 50 ? fee.slice(0, 48) + "…" : fee}</span>
-              </div>
+              <span style={{ color: "#b99a65", fontWeight: 600 }}>1:1 Plan</span>
+              <span>Personalised clinical assessment &amp; tailored quotation</span>
             </div>
-          )}
+          </div>
 
           {/* Bottom branding row */}
           <div
@@ -209,7 +206,7 @@ export default async function Image({
                   display: "flex",
                 }}
               >
-                AIIMS-trained Plastic &amp; Aesthetic Surgeon · Faridabad · Delhi NCR
+                AIIMS-trained Plastic &amp; Aesthetic Surgeon · Across Delhi NCR · Gurgaon &amp; South Delhi
               </div>
             </div>
 

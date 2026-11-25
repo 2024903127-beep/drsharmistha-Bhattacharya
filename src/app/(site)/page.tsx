@@ -11,15 +11,15 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 
 export const metadata = buildMeta({
-  title: "Plastic Surgeon in Faridabad | Dr. Sharmistha Bhattacharyya",
+  title: "Plastic Surgeon Across Delhi NCR | Dr. Sharmistha",
   description:
-    "AIIMS-trained plastic surgeon in Faridabad serving Delhi NCR and Gurgaon. Rhinoplasty, facelift, breast, body, hair and skin treatments. Book an online consultation.",
+    "AIIMS-trained plastic surgeon serving across Delhi NCR — Gurgaon (Golf Course Road), South Delhi & Faridabad. Detailed 1:1 consultations for natural, ethnicity-preserving results.",
   path: "/",
   keywords: [
-    "plastic surgeon Faridabad", "cosmetic surgeon Faridabad", "rhinoplasty Faridabad",
-    "facelift Faridabad", "gynecomastia Faridabad", "breast surgery Faridabad",
-    "liposuction Faridabad", "AIIMS plastic surgeon Delhi NCR", "Dr Sharmistha Bhattacharyya",
-    "online plastic surgery consultation", "aesthetic surgeon Gurgaon",
+    "plastic surgeon Delhi NCR", "cosmetic surgeon Gurgaon Golf Course Road", "plastic surgeon South Delhi",
+    "rhinoplasty Delhi NCR", "facelift Gurgaon", "gynecomastia South Delhi", "breast surgery Gurgaon",
+    "liposuction Delhi NCR", "AIIMS plastic surgeon Delhi NCR", "Dr Sharmistha Bhattacharyya",
+    "online plastic surgery consultation", "plastic surgeon Faridabad",
   ],
 });
 
@@ -136,7 +136,7 @@ export default function Home() {
               <span className="gold-text">crafted with restraint.</span>
             </h1>
             <p className="mt-4 text-sm leading-relaxed text-ivory/70 max-w-xs">
-              Plastic & aesthetic surgeon in Faridabad — serving Delhi NCR & Gurgaon with AIIMS-trained precision.
+              Plastic &amp; aesthetic surgeon across Delhi NCR — serving Gurgaon, South Delhi &amp; Faridabad with AIIMS-trained precision.
             </p>
             <div className="mt-6 flex flex-col w-full gap-3">
               <Link href="/book-consultation" className="btn btn-gold w-full justify-center">
@@ -180,7 +180,7 @@ export default function Home() {
             <div className="relative aspect-[4/5] overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,.55)]">
               <SafeImage
                 src="/assets/doctor.jpg"
-                alt="Dr. Sharmistha Bhattacharyya, plastic surgeon in Faridabad"
+                alt="Dr. Sharmistha Bhattacharyya, plastic & aesthetic surgeon across Delhi NCR"
                 priority
                 sizes="(min-width:1024px) 352px, 288px"
                 className="object-cover object-top"
@@ -342,16 +342,13 @@ export default function Home() {
 
             {/* Text */}
             <div>
-              <div className="lux-label mb-5" style={{ color: "var(--color-gold-deep)" }}>The surgeon</div>
+              <div className="lux-label mb-5" style={{ color: "var(--color-gold-deep)" }}>Meet Dr. Sharmistha</div>
               <h2 className="h-section text-forest">
-                One surgeon for every step of your care
+                Why I stay with you for every step of your care
               </h2>
               <div className="gold-line mt-5 mb-6 max-w-[8rem]" />
               <p className="text-stone leading-relaxed text-base md:text-lg">
-                Dr. Sharmistha Bhattacharyya is an MCh-qualified plastic and
-                reconstructive surgeon, trained at AIIMS New Delhi. She conducts
-                every consultation personally, performs every operation herself,
-                and reviews every patient at every follow-up.
+                I trained in plastic and reconstructive surgery at AIIMS New Delhi, and over the past decade serving patients across Delhi NCR, I built my practice around one simple promise: I conduct every 1:1 consultation personally, perform every procedure myself, and follow your healing personally through the year ahead — never passing you to trainees or sales counsellors.
               </p>
               <div className="mt-7 grid grid-cols-2 gap-3">
                 {[
@@ -367,8 +364,8 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link href="/about-dr-sharmistha" className="btn btn-forest">About Dr. Sharmistha</Link>
-                <Link href="/book-consultation" className="btn btn-line">Book consultation</Link>
+                <Link href="/about-dr-sharmistha" className="btn btn-forest">Read my story</Link>
+                <Link href="/book-consultation" className="btn btn-line">Book 1:1 consultation</Link>
               </div>
             </div>
           </div>
@@ -529,12 +526,12 @@ export default function Home() {
               </div>
             ))}
             <p className="text-xs md:text-sm text-stone pt-1">
-              Serving{" "}
-              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/faridabad">Faridabad</Link>,{" "}
-              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/gurgaon">Gurgaon</Link>{" "}
+              Serving patients across Delhi NCR —{" "}
+              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/gurgaon-golf-course-road">Gurgaon (Golf Course Road)</Link>,{" "}
+              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/south-delhi">South Delhi</Link>{" "}
               &amp;{" "}
-              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/delhi">Delhi</Link>,
-              plus outstation patients by video.
+              <Link className="text-forest underline underline-offset-4 decoration-gold-deep/60 hover:text-gold-deep" href="/locations/faridabad">Faridabad</Link>,
+              plus outstation &amp; international patients by video.
             </p>
           </div>
         </RevealOnScroll>

@@ -84,7 +84,7 @@ export default async function Image() {
               alignItems: "flex-start",
             }}
           >
-            MS (Surgery), MCh (Plastic Surgery) — AIIMS New Delhi. 10+ years of practice in Faridabad, Gurgaon &amp; Delhi NCR.
+            MS (Surgery), MCh (Plastic Surgery) — AIIMS New Delhi. 10+ years serving across Delhi NCR — Gurgaon, South Delhi &amp; Faridabad.
           </div>
           <div
             style={{

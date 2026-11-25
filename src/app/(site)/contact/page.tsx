@@ -4,8 +4,8 @@ import { JsonLd } from "@/components/site/JsonLd";
 import { LeadForm } from "@/components/site/LeadForm";
 
 export const metadata = buildMeta({
-  title: "Contact Dr. Sharmistha Bhattacharyya | Faridabad",
-  description: "Call, WhatsApp or send an enquiry to Dr. Sharmistha Bhattacharyya's clinic at Accord Super Speciality Hospital, Sector 86, Faridabad. Monday to Saturday.",
+  title: "Contact Dr. Sharmistha Bhattacharyya | Delhi NCR",
+  description: "Call, WhatsApp or book a 1:1 online consultation with Dr. Sharmistha Bhattacharyya serving Gurgaon, South Delhi & across Delhi NCR. Surgical centre: Accord Super Speciality Hospital, Sector 86.",
   path: "/contact",
 });
 

@@ -173,7 +173,7 @@ export default async function Image() {
                   display: "flex",
                 }}
               >
-                AIIMS-trained Plastic &amp; Aesthetic Surgeon · Faridabad · Delhi NCR
+                AIIMS-trained Plastic &amp; Aesthetic Surgeon · Across Delhi NCR · Gurgaon &amp; South Delhi
               </div>
             </div>
             <div
