@@ -2,12 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { LayoutDashboard, CalendarDays, Stethoscope, Users, Inbox, IndianRupee, MessageCircle, Globe, ShieldCheck, Plug, ScrollText, Menu, X, LogOut } from "lucide-react";
+import { LayoutDashboard, CalendarDays, Stethoscope, Users, Inbox, IndianRupee, MessageCircle, Globe, ShieldCheck, ClipboardList, ScrollText, Menu, X, LogOut } from "lucide-react";
 import type { Module } from "@/lib/permissions";
 
 const icons: Record<Module, React.ComponentType<{ size?: number; "aria-hidden"?: boolean }>> = {
   dashboard: LayoutDashboard, appointments: CalendarDays, consultation: Stethoscope, patients: Users, leads: Inbox,
-  billing: IndianRupee, messages: MessageCircle, content: Globe, team: ShieldCheck, settings: Plug, audit: ScrollText,
+  billing: IndianRupee, messages: MessageCircle, content: Globe, team: ShieldCheck, settings: ClipboardList, audit: ScrollText,
 };
 const roleLabel = { admin: "Owner / Admin", doctor: "Doctor", receptionist: "Receptionist", coordinator: "Coordinator" } as const;
 

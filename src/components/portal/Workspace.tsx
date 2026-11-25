@@ -1,16 +1,28 @@
 "use client";
 import { useState } from "react";
-import { Camera, PenLine, FileText, Plus, Trash2, Send } from "lucide-react";
+import { Camera, PenLine, FileText } from "lucide-react";
 import { A4Pad } from "./A4Pad";
+import { TypedRx, type SavedRxData } from "./TypedRx";
 import { call, compressImage, DocActions } from "./Actions";
 import { useRouter } from "next/navigation";
+import type { ClinicalCatalog } from "@/lib/clinical-templates";
 
 type Appt = { id: string; patient: string; patientId: string; service: string; mode: string; when: string; status: string; meetLink: string | null };
 type Doc = { id: string; name: string; kind: string; at: string; local?: boolean };
 const KIND: Record<string, string> = { "A4 pad PDF": "prescription_pad", "Photo of handwritten prescription": "prescription_photo", "Typed prescription": "prescription_typed" };
 const tabs = [["pad", "A4 writing pad", PenLine], ["photo", "Upload photo", Camera], ["typed", "Type prescription", FileText]] as const;
 
-export function Workspace({ appt, doctor }: { appt: Appt; doctor: string }) {
+export function Workspace({
+  appt,
+  doctor,
+  catalog,
+  previousRx,
+}: {
+  appt: Appt;
+  doctor: string;
+  catalog: ClinicalCatalog;
+  previousRx?: SavedRxData | null;
+}) {
   const [tab, setTab] = useState<(typeof tabs)[number][0]>("pad");
   const [docs, setDocs] = useState<Doc[]>([]), [done, setDone] = useState(""), router = useRouter();
 
@@ -40,7 +52,18 @@ export function Workspace({ appt, doctor }: { appt: Appt; doctor: string }) {
         <div role="tabpanel">
           {tab === "pad" && <A4Pad id={appt.id} patient={appt.patient} onSave={save} />}
           {tab === "photo" && <PhotoUpload onSave={save} />}
-          {tab === "typed" && <Typed patient={appt.patient} onSave={save} />}
+          {tab === "typed" && (
+            <TypedRx
+              patient={appt.patient}
+              patientId={appt.patientId}
+              appointmentId={appt.id}
+              service={appt.service}
+              doctor={doctor}
+              initialCatalog={catalog}
+              previousRx={previousRx}
+              onSave={save}
+            />
+          )}
         </div>
         <aside className="glass h-fit p-5">
           <h2 className="text-lg">Saved for this visit</h2>
@@ -65,44 +88,6 @@ function PhotoUpload({ onSave }: { onSave: (f: File, k: string) => Promise<void>
       <label className="p-btn mt-5 cursor-pointer"><Camera size={16} aria-hidden />Take or choose photo<input type="file" accept="image/*" capture="environment" className="sr-only" onChange={(e) => pick(e.target.files?.[0])} /></label>
       {url && (<><img src={url} alt="Preview of the prescription photo" className="mt-5 max-h-[32rem] rounded-xl border border-p-border" /><button className="p-btn mt-4" onClick={go} disabled={busy}>{busy ? "Saving..." : "Save to this visit"}</button></>)}
       {msg && <p role="status" className="mt-3 text-sm text-p-muted">{msg}</p>}
-    </div>
-  );
-}
-
-function Typed({ patient, onSave }: { patient: string; onSave: (f: File, k: string) => Promise<void> }) {
-  const [rows, setRows] = useState([{ drug: "", dose: "", freq: "", days: "" }]);
-  const [advice, setAdvice] = useState(""), [follow, setFollow] = useState(""), [msg, setMsg] = useState("");
-  const set = (i: number, k: string, v: string) => setRows((r) => r.map((x, j) => (j === i ? { ...x, [k]: v } : x)));
-  async function pdf() {
-    const { jsPDF } = await import("jspdf");
-    const d = new jsPDF({ unit: "mm", format: "a4" });
-    d.setFontSize(17); d.text("Dr. Sharmistha Bhattacharyya", 15, 20); d.setFontSize(10);
-    d.text("Plastic and Aesthetic Surgery | Accord Super Speciality Hospital, Sector 86, Faridabad", 15, 26); d.line(15, 30, 195, 30);
-    d.text(`Patient: ${patient}`, 15, 38); d.text(`Date: ${new Date().toLocaleDateString("en-IN")}`, 195, 38, { align: "right" });
-    d.setFontSize(16); d.text("Rx", 15, 50); d.setFontSize(11); let y = 59;
-    rows.filter((r) => r.drug).forEach((r, i) => { d.text(`${i + 1}. ${r.drug}   ${r.dose}   ${r.freq}   ${r.days ? `for ${r.days}` : ""}`, 18, y); y += 8; });
-    if (advice) { y += 4; d.text("Advice", 15, y); y += 6; d.text(d.splitTextToSize(advice, 175), 15, y); y += 6 * Math.ceil(advice.length / 90) + 6; }
-    if (follow) d.text(`Follow-up: ${follow}`, 15, y);
-    return d;
-  }
-  const name = `prescription-typed-${patient.toLowerCase().replace(/\s+/g, "-")}.pdf`;
-  async function save() { try { const d = await pdf(); await onSave(new File([d.output("blob")], name, { type: "application/pdf" }), "Typed prescription"); setMsg("Saved to this visit."); } catch (e) { setMsg((e as Error).message); } }
-  return (
-    <div className="solid space-y-4 p-6">
-      <h2 className="text-xl">Typed prescription</h2>
-      {rows.map((r, i) => (
-        <div key={i} className="grid gap-2 sm:grid-cols-[2fr_1fr_1fr_1fr_auto]">
-          {([["drug", "Medicine"], ["dose", "Dose"], ["freq", "How often"], ["days", "For how long"]] as const).map(([k, l]) => (
-            <div key={k}><label className="p-label" htmlFor={`${k}${i}`}>{l}</label><input id={`${k}${i}`} className="p-input" value={r[k]} onChange={(e) => set(i, k, e.target.value)} /></div>
-          ))}
-          <button className="p-btn p-btn-ghost self-end" aria-label="Remove medicine" onClick={() => setRows((x) => x.filter((_, j) => j !== i))} disabled={rows.length === 1}><Trash2 size={16} /></button>
-        </div>
-      ))}
-      <button className="p-btn p-btn-ghost" onClick={() => setRows((r) => [...r, { drug: "", dose: "", freq: "", days: "" }])}><Plus size={16} aria-hidden />Add medicine</button>
-      <div><label className="p-label" htmlFor="adv">Advice</label><textarea id="adv" rows={3} className="p-input" value={advice} onChange={(e) => setAdvice(e.target.value)} /></div>
-      <div><label className="p-label" htmlFor="fu">Follow-up</label><input id="fu" className="p-input" placeholder="For example: review after 1 week" value={follow} onChange={(e) => setFollow(e.target.value)} /></div>
-      <div className="flex flex-wrap gap-2"><button className="p-btn p-btn-ghost" onClick={async () => (await pdf()).save(name)}>Download PDF</button><button className="p-btn" onClick={save}>Save to this visit</button></div>
-      {msg && <p role="status" className="text-sm text-p-muted">{msg}</p>}
     </div>
   );
 }
