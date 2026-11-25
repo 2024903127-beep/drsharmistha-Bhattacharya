@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { buildMeta, breadcrumbLd } from "@/lib/seo";
-import { categories, byCategory, slugify } from "@/lib/content";
+import { buildMeta, breadcrumbLd, servicesCatalogLd } from "@/lib/seo";
+import { services, categories, byCategory, slugify } from "@/lib/content";
 import { JsonLd } from "@/components/site/JsonLd";
 import { CtaBand } from "@/components/site/CtaBand";
 
@@ -24,10 +24,13 @@ export default function Services() {
   return (
     <>
       <JsonLd
-        data={breadcrumbLd([
-          { name: "Home", path: "/" },
-          { name: "Procedures", path: "/services" },
-        ])}
+        data={[
+          breadcrumbLd([
+            { name: "Home", path: "/" },
+            { name: "Procedures", path: "/services" },
+          ]),
+          servicesCatalogLd(services),
+        ]}
       />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}

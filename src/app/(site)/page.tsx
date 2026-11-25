@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buildMeta, faqLd, physicianLd, howToLd, breadcrumbLd } from "@/lib/seo";
 import { site, pillars, journey, testimonials, reels } from "@/lib/site";
-import { categories, byCategory, faq, slugify } from "@/lib/content";
+import { categories, byCategory, faq, articles, slugify } from "@/lib/content";
 import { SafeImage } from "@/components/site/SafeImage";
 import { Tilt } from "@/components/site/Tilt";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -594,6 +594,60 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </RevealOnScroll>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          § 8B FEATURED PATIENT GUIDES — Editorial SEO Hub
+      ══════════════════════════════════════════ */}
+      <section className="section-contain bg-ivory w-full border-t border-forest/10 py-14 md:py-20">
+        <RevealOnScroll className="wrap">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-8 md:mb-12">
+            <div>
+              <div className="lux-label mb-3" style={{ color: "var(--color-gold-deep)" }}>Doctor-Authored Guides</div>
+              <h2 className="h-section text-forest max-w-xl">Detailed patient guides across Delhi NCR</h2>
+              <p className="mt-2.5 text-stone text-sm md:text-base max-w-xl">
+                In-depth reading on recovery milestones, realistic trade-offs, and safety for patients from Gurgaon, South Delhi, and Faridabad.
+              </p>
+            </div>
+            <Link href="/blog" className="btn btn-line self-start shrink-0">
+              All patient guides →
+            </Link>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {articles
+              .filter((a) =>
+                [
+                  "mommy-makeover-gurgaon-golf-course-road",
+                  "tummy-tuck-south-delhi",
+                  "blepharoplasty-gurgaon-golf-course-road",
+                  "facial-contouring-surgical-non-surgical-gurgaon-south-delhi-faridabad",
+                ].includes(a.slug)
+              )
+              .map((a) => (
+                <Link
+                  key={a.slug}
+                  href={`/blog/${a.slug}`}
+                  className="glass-card-light group flex flex-col justify-between border border-forest/12 bg-white/80 p-5 rounded-sm hover:border-gold-deep/40 transition-all"
+                >
+                  <div>
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-gold-deep">
+                      {a.category} · {a.readTime}
+                    </div>
+                    <h3 className="mt-2 font-display text-lg leading-snug text-forest group-hover:text-gold-deep transition-colors">
+                      {a.title}
+                    </h3>
+                    <p className="mt-2 text-xs text-stone line-clamp-3 leading-relaxed">
+                      {a.excerpt}
+                    </p>
+                  </div>
+                  <span className="mt-4 text-xs font-semibold text-forest group-hover:text-gold-deep transition-colors">
+                    Read guide →
+                  </span>
+                </Link>
+              ))}
+          </div>
         </RevealOnScroll>
       </section>
 

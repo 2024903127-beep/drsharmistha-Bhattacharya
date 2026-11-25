@@ -52,6 +52,7 @@ export type Article = {
   metaDescription: string;
   keywords: string[];
   excerpt: string;
+  body?: string;
 };
 
 export const services = raw.services as Service[];
@@ -70,19 +71,27 @@ export const slugify = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
+const ARTICLE_SERVICE_MAP: [string, string[]][] = [
+  ["mommy-makeover", ["mommy-makeover", "tummy-tuck", "breast-lift", "liposuction"]],
+  ["tummy-tuck", ["tummy-tuck", "liposuction", "mommy-makeover"]],
+  ["breast-augmentation", ["breast-implant"]],
+  ["breast-lift-vs-reduction", ["breast-lift", "breast-reduction"]],
+  ["intimate", ["mommy-makeover"]],
+  ["facial-contouring", ["facelift", "chin-lift", "rhinoplasty", "anti-wrinkle-injection"]],
+  ["rhinoplasty", ["rhinoplasty"]],
+  ["blepharoplasty", ["blepharoplasty", "facelift"]],
+];
+
 export function relatedService(a: Article): Service | undefined {
-  const map: [string, string][] = [
-    ["mommy-makeover", "mommy-makeover"],
-    ["tummy-tuck", "tummy-tuck"],
-    ["breast-augmentation", "breast-implant"],
-    ["breast-lift", "breast-lift"],
-    ["intimate", "mommy-makeover"],
-    ["facial-contouring", "facelift"],
-    ["rhinoplasty", "rhinoplasty"],
-    ["blepharoplasty", "blepharoplasty"],
-  ];
-  const hit = map.find(([k]) => a.slug.startsWith(k));
-  return hit ? getService(hit[1]) : undefined;
+  const hit = ARTICLE_SERVICE_MAP.find(([k]) => a.slug.startsWith(k));
+  return hit ? getService(hit[1][0]) : undefined;
+}
+
+export function relatedArticles(s: Service): Article[] {
+  return articles.filter((a) => {
+    const hit = ARTICLE_SERVICE_MAP.find(([k]) => a.slug.startsWith(k));
+    return hit ? hit[1].includes(s.slug) : false;
+  });
 }
 
 // Single source for page titles and descriptions (used by pages and by the SEO checker in the staff portal).

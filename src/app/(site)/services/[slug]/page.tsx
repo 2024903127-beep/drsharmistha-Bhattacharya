@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { buildMeta, breadcrumbLd, faqLd, procedureLd } from "@/lib/seo";
-import { services, getService, byCategory, slugify, serviceTitle, serviceDescription } from "@/lib/content";
+import { services, getService, byCategory, relatedArticles, slugify, serviceTitle, serviceDescription } from "@/lib/content";
 import { locations } from "@/lib/locations";
 import { site } from "@/lib/site";
 import { getOverride } from "@/lib/repo";
@@ -91,6 +91,10 @@ export default async function ServicePage({ params }: P) {
           <p className="mt-5 max-w-2xl text-base md:text-lg text-ivory/75 leading-relaxed">
             {s.short} Personalised 1:1 consultations and NABH-accredited surgical care by Dr.&nbsp;Sharmistha Bhattacharyya for patients across Gurgaon (Golf Course Road), South Delhi, Faridabad and wider Delhi NCR.
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-ivory/10 pt-4 text-xs text-ivory/65">
+            <span className="font-semibold text-gold">Medically Authored &amp; Reviewed:</span>
+            <span>Dr. Sharmistha Bhattacharyya · MBBS, MS (Surgery), MCh Plastic Surgery (AIIMS New Delhi) · IAAPS · APSI · ISAPS</span>
+          </div>
         </div>
         <div className="gold-line w-full" />
       </section>
@@ -241,6 +245,30 @@ export default async function ServicePage({ params }: P) {
                   </div>
                 </div>
               )}
+            </section>
+          )}
+
+          {relatedArticles(s).length > 0 && (
+            <section className="mt-14 border-t border-forest/15 pt-8">
+              <p className="lux-label text-gold-deep mb-2">Further Reading</p>
+              <h2 className="font-display text-2xl text-forest">Detailed patient stories &amp; regional guides</h2>
+              <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+                {relatedArticles(s).map((art) => (
+                  <li key={art.slug}>
+                    <Link
+                      href={`/blog/${art.slug}`}
+                      className="block rounded-sm border border-forest/15 bg-white/80 p-4 hover:border-gold-deep/40 transition-colors"
+                    >
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-deep">
+                        {art.tag} · {art.readTime}
+                      </span>
+                      <span className="mt-1 block font-display text-lg leading-snug text-forest">
+                        {art.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 

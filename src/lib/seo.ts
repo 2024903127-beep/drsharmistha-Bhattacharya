@@ -22,10 +22,24 @@ export function buildMeta(o: {
     alternates: { canonical: url },
     robots: o.noindex
       ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        },
     openGraph: {
-      title: o.title, description: o.description, url, siteName: site.brand,
-      type: o.type ?? "website", locale: "en_IN",
+      title: o.title,
+      description: o.description,
+      url,
+      siteName: site.brand,
+      type: o.type ?? "website",
+      locale: "en_IN",
       images: [
         {
           url: img,
@@ -40,8 +54,12 @@ export function buildMeta(o: {
       ...(o.modifiedTime ? { modifiedTime: o.modifiedTime } : {}),
     },
     twitter: {
-      card: "summary_large_image", site: "@drsharmistha", creator: "@drsharmistha",
-      title: o.title, description: o.description, images: [img],
+      card: "summary_large_image",
+      site: "@drsharmistha",
+      creator: "@drsharmistha",
+      title: o.title,
+      description: o.description,
+      images: [img],
     },
   };
 }
@@ -56,21 +74,46 @@ const addr = {
   addressCountry: "IN",
 };
 
-// ─── Physician / MedicalBusiness (placed on every public page) ───────────────
+// ─── Physician / MedicalBusiness Knowledge Graph Node ─────────────────────────
 // aggregateRating deliberately omitted — Google ignores self-reported ratings.
 export const physicianLd = {
   "@context": "https://schema.org",
   "@type": ["Physician", "MedicalBusiness"],
   "@id": `${site.url}/#physician`,
   name: site.name,
+  alternateName: "Dr. Sharmistha Bhattacharyya Plastic Surgery Practice",
   url: site.url,
   image: `${site.url}/assets/doctor.jpg`,
   telephone: site.phone,
   email: site.email,
   priceRange: "₹₹",
   currenciesAccepted: "INR",
-  paymentAccepted: "Cash, Credit Card, Debit Card, Net Banking",
-  medicalSpecialty: "PlasticSurgery",
+  paymentAccepted: "Cash, Credit Card, Debit Card, UPI, Net Banking",
+  medicalSpecialty: ["https://schema.org/PlasticSurgery", "Surgical", "Dermatologic"],
+  knowsAbout: [
+    "Rhinoplasty",
+    "Preservation Rhinoplasty",
+    "Septorhinoplasty",
+    "Facelift",
+    "SMAS Facelift",
+    "Blepharoplasty",
+    "Breast Augmentation",
+    "Breast Lift",
+    "Breast Reduction",
+    "Gynecomastia Surgery",
+    "Liposuction",
+    "Tummy Tuck (Abdominoplasty)",
+    "Mommy Makeover",
+    "FUE and FUT Hair Transplant",
+    "Q-Switched Laser Toning",
+    "Laser Hair Reduction",
+    "South Asian Facial Aesthetics",
+  ],
+  memberOf: [
+    { "@type": "MedicalOrganization", name: "Indian Association of Aesthetic Plastic Surgeons (IAAPS)" },
+    { "@type": "MedicalOrganization", name: "Association of Plastic Surgeons of India (APSI)" },
+    { "@type": "MedicalOrganization", name: "International Society of Aesthetic Plastic Surgery (ISAPS)" },
+  ],
   address: addr,
   geo: { "@type": "GeoCoordinates", latitude: "28.3929", longitude: "77.3085" },
   hasMap: site.hospital.maps,
@@ -89,19 +132,63 @@ export const physicianLd = {
     "https://www.practo.com",
   ],
   openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "10:00", closes: "19:00" },
-    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Sunday"], opens: "00:00", closes: "00:00" },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "10:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Sunday"],
+      opens: "00:00",
+      closes: "00:00",
+    },
   ],
-  hospitalAffiliation: { "@type": "Hospital", name: site.hospital.name, address: addr },
+  hospitalAffiliation: {
+    "@type": "Hospital",
+    name: `${site.hospital.name} (NABH & NABL Accredited)`,
+    address: addr,
+  },
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "All India Institute of Medical Sciences (AIIMS), New Delhi" },
     { "@type": "CollegeOrUniversity", name: "VMMC and Safdarjung Hospital, New Delhi" },
     { "@type": "CollegeOrUniversity", name: "Kasturba Medical College, Manipal" },
   ],
   hasCredential: [
-    { "@type": "EducationalOccupationalCredential", name: "MCh, Plastic and Reconstructive Surgery", credentialCategory: "degree", recognizedBy: { "@type": "Organization", name: "AIIMS New Delhi" } },
-    { "@type": "EducationalOccupationalCredential", name: "ISAPS International Aesthetic Fellowship", credentialCategory: "fellowship" },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "MCh, Plastic and Reconstructive Surgery",
+      credentialCategory: "degree",
+      recognizedBy: { "@type": "Organization", name: "AIIMS New Delhi" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "MS, General Surgery",
+      credentialCategory: "degree",
+      recognizedBy: { "@type": "Organization", name: "VMMC and Safdarjung Hospital, New Delhi" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "ISAPS International Aesthetic Fellowship",
+      credentialCategory: "fellowship",
+    },
   ],
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${site.url}/book-consultation`,
+      actionPlatform: [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform",
+      ],
+    },
+    result: {
+      "@type": "MedicalAppointment",
+      name: "1:1 Online Plastic Surgery Consultation",
+    },
+  },
 };
 
 // ─── WebSite schema (search box, homepage) ───────────────────────────────────
@@ -111,7 +198,8 @@ export const websiteLd = {
   "@id": `${site.url}/#website`,
   name: site.brand,
   url: site.url,
-  description: "AIIMS-trained plastic and aesthetic surgeon serving patients across Delhi NCR — Gurgaon (Golf Course Road), South Delhi and Faridabad. Book private 1:1 online consultations.",
+  description:
+    "AIIMS-trained plastic and aesthetic surgeon serving patients across Delhi NCR — Gurgaon (Golf Course Road), South Delhi and Faridabad. Book private 1:1 online consultations.",
   inLanguage: "en-IN",
   potentialAction: {
     "@type": "SearchAction",
@@ -121,21 +209,27 @@ export const websiteLd = {
   publisher: { "@id": `${site.url}/#physician` },
 };
 
-// ─── Local Business (adds map pin in SERPs) ───────────────────────────────────
+// ─── Local Business (adds map pin + clinic context in SERPs) ─────────────────
 export const localBusinessLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "MedicalClinic",
   "@id": `${site.url}/#localbusiness`,
   name: site.brand,
   image: `${site.url}/assets/doctor.jpg`,
   telephone: site.phone,
   email: site.email,
+  medicalSpecialty: "PlasticSurgery",
   address: addr,
   url: site.url,
   priceRange: "₹₹",
   currenciesAccepted: "INR",
   openingHoursSpecification: [
-    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "10:00", closes: "19:00" },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "10:00",
+      closes: "19:00",
+    },
   ],
   geo: { "@type": "GeoCoordinates", latitude: "28.3929", longitude: "77.3085" },
   hasMap: site.hospital.maps,
@@ -155,7 +249,7 @@ export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
   })),
 });
 
-// ─── FAQ (AEO — answers in SERPs and AI overviews) ───────────────────────────
+// ─── FAQ (AEO — answers in SERPs, Google AI Overviews & LLMs) ───────────────
 export const faqLd = (items: { q: string; a: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -188,15 +282,40 @@ export const procedureLd = (name: string, description: string, path: string, ext
     name,
     procedureType: "https://schema.org/SurgicalProcedure",
     bodyLocation: "varies",
-    preparation: "Pre-operative assessment required",
-    followup: "Reviews at 1 week, 1 month, 3 months and 12 months",
+    preparation: "1:1 clinical evaluation and pre-operative assessment with Dr. Sharmistha Bhattacharyya",
+    followup: "Structured reviews at 1 week, 1 month, 3 months, 6 months, and 12 months",
     ...extra,
   },
   author: { "@id": `${site.url}/#physician` },
   reviewedBy: { "@id": `${site.url}/#physician` },
+  lastReviewed: new Date().toISOString().split("T")[0],
   dateModified: new Date().toISOString().split("T")[0],
   medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
+  specialty: "https://schema.org/PlasticSurgery",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "h2", "article"],
+  },
   mainContentOfPage: { "@type": "WebPageElement", cssSelector: "main" },
+});
+
+// ─── Services Catalog ItemList (for /services hub) ───────────────────────────
+export const servicesCatalogLd = (items: { name: string; short: string; slug: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Plastic & Aesthetic Surgery Procedures by Dr. Sharmistha Bhattacharyya Across Delhi NCR",
+  url: `${site.url}/services`,
+  numberOfItems: items.length,
+  itemListElement: items.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "MedicalProcedure",
+      name: s.name,
+      description: s.short,
+      url: `${site.url}/services/${s.slug}`,
+    },
+  })),
 });
 
 // ─── Article / Blog ───────────────────────────────────────────────────────────
@@ -208,15 +327,19 @@ export const articleLd = (o: { title: string; description: string; slug: string;
   url: `${site.url}/blog/${o.slug}`,
   inLanguage: "en-IN",
   author: { "@id": `${site.url}/#physician` },
+  reviewedBy: { "@id": `${site.url}/#physician` },
   publisher: { "@id": `${site.url}/#physician` },
-  datePublished: o.publishedTime ?? new Date().toISOString().split("T")[0],
+  lastReviewed: new Date().toISOString().split("T")[0],
+  datePublished: o.publishedTime ?? "2026-11-20",
   dateModified: new Date().toISOString().split("T")[0],
   image: `${site.url}/assets/og.jpg`,
   medicalAudience: { "@type": "MedicalAudience", audienceType: "Patient" },
+  specialty: "https://schema.org/PlasticSurgery",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", "h2", ".speakable"],
   },
+  mainEntityOfPage: `${site.url}/blog/${o.slug}`,
 });
 
 // ─── Event (for booked online consultations — schema for future) ──────────────
